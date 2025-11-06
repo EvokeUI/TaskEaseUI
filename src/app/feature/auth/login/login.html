@@ -15,9 +15,11 @@
             #usernameCtrl="ngModel"
             placeholder="Enter your username"
           />
-          <mat-error *ngIf="usernameCtrl.invalid && usernameCtrl.touched">
-            Username is required
-          </mat-error>
+         @if(usernameCtrl.invalid && usernameCtrl.touched){
+                <mat-error>
+                    Username is required
+                </mat-error>
+               }
         </mat-form-field>
 
         <!-- Password -->
