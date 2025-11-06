@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { Welcome } from './shared/welcome/welcome';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
