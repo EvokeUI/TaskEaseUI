@@ -4,6 +4,7 @@
 
     <mat-card-content>
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
         <!-- Username -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Username</mat-label>
@@ -15,11 +16,9 @@
             #usernameCtrl="ngModel"
             placeholder="Enter your username"
           />
-         @if(usernameCtrl.invalid && usernameCtrl.touched){
-                <mat-error>
-                    Username is required
-                </mat-error>
-               }
+          <mat-error *ngIf="usernameCtrl.invalid && usernameCtrl.touched">
+            Username is required
+          </mat-error>
         </mat-form-field>
 
         <!-- Password -->
@@ -34,16 +33,12 @@
             #passwordCtrl="ngModel"
             placeholder="Enter your password"
           />
-          <mat-error *ngIf="passwordCtrl.invalid && passwordCtrl.touched">
+          @if(passwordCtrl.invalid && passwordCtrl.touched){
+          <mat-error>
             Password is required
           </mat-error>
+        }
         </mat-form-field>
-
-        <!-- Remember me + forgot password -->
-        <div class="actions-row">
-          <mat-checkbox name="rememberMe">Remember me</mat-checkbox>
-          <a class="forgot-link" href="#">Forgot Password?</a>
-        </div>
 
         <!-- Submit Button -->
         <button
@@ -54,6 +49,17 @@
         >
           Login
         </button>
+
+        <div class="actions-row">
+          <a class="forgot-link" href="#">Forgot Password?</a>
+        </div>
+
+        <mat-card class="signup-sec">
+          <p class="actions-row">
+            Don't have an account?
+            <a routerLink="/welcome-page/signup" class="signup">Sign Up</a>
+          </p>
+        </mat-card>
       </form>
     </mat-card-content>
   </mat-card>
