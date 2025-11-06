@@ -1,9 +1,12 @@
-<div>
-    <mat-card>
-        <h2>Welcome to TaskEase Application</h2>
-        <p>An application allows you to manage your tasks in more efficient way.... </p>
+<mat-card class="outer-card">
+  <div class="welcome-container">
+    <mat-card class="intro-card">
+      <h2>Welcome to TaskEase Application</h2>
+      <p>An application that allows you to manage your tasks in a more efficient way...</p>
     </mat-card>
-    <mat-card>
-        <router-outlet></router-outlet>
+
+    <mat-card class="content-card">
+      <router-outlet></router-outlet>
     </mat-card>
-</div>
+  </div>
+</mat-card>
