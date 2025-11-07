@@ -5,10 +5,10 @@ import { AdminLayout } from './layouts/admin-layout/admin-layout';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo: 'welcome-page', pathMatch: 'full'
+        path: '', redirectTo: 'taskease', pathMatch: 'full'
     },
     {
-        path: 'welcome-page', component: WelcomeLayout, 
+        path: 'taskease', component: WelcomeLayout, 
         children: [
             {
                 path: '', loadChildren: () => import('./feature/auth/auth-module').then((m) => m.AuthModule)
