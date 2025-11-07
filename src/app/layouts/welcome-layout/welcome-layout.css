@@ -22,8 +22,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.intro-card,
-.content-card {
+.intro-card, .content-card {
   flex: 1;
   display: flex;
   flex-direction: column;
