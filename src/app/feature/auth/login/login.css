@@ -23,6 +23,11 @@
   width: 100%;
   margin-bottom: 1rem;
 }
+#log_btn{
+  border-radius: 5px;
+  height: 40px;
+  padding: 15px !important;
+}
 
 .loginHead {
   text-align: center;
