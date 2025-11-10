@@ -14,7 +14,7 @@ export class UserService {
   login(username: string, password: string): Observable<any> {
     return this.http.get<any[]>(this.userURL).pipe(
       map(users => {
-        const user = users.find(u => u.username === username && u.password === password);
+        const user = users.find(u => u.email === username && u.password === password);
         
         if (user) {
           return { status: '200', message: 'Login successful', user };
