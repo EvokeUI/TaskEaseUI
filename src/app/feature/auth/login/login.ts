@@ -26,7 +26,7 @@ export class Login implements OnInit{
     this.submitted = true;
     this.userService.login(this.username, this.password).subscribe((res) =>{
       if(res.status == 200){
-        
+        console.log(res.message);
       }
     })
   }
