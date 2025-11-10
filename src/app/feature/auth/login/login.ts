@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../../core/services/user-service';
 
 @Component({
@@ -16,7 +16,7 @@ import { UserService } from '../../../core/services/user-service';
 })
 
 export class Login implements OnInit{
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   username: string = '';
   password: string = '';
@@ -27,6 +27,7 @@ export class Login implements OnInit{
     this.userService.login(this.username, this.password).subscribe((res) =>{
       if(res.status == 200){
         console.log(res.message);
+        this.router.navigate(['user/dashboard']);
       }
     })
   }

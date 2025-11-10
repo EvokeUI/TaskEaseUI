@@ -16,7 +16,7 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'user-layout', component: UserLayout,
+        path: 'user', component: UserLayout,
         children: [
             {
                 path: '', loadChildren: () => import('./feature/user/user-module').then((m) => m.UserModule)
@@ -24,7 +24,7 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'admin-layout', component: AdminLayout,
+        path: 'admin', component: AdminLayout,
         children: [
             {
                 path: '', loadChildren: () => import('./feature/admin/admin-module').then((m) => m.AdminModule)
