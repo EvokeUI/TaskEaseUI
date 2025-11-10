@@ -21,16 +21,27 @@ export class Login implements OnInit{
   username: string = '';
   password: string = '';
   submitted = false;
-
-  onSubmit() {
-    this.submitted = true;
-    this.userService.login(this.username, this.password).subscribe((res) =>{
-      if(res.status == 200){
-        console.log(res.message);
-        this.router.navigate(['user/dashboard']);
+  message: string = '';
+  isSuccess: boolean = false;
+onSubmit() {
+  this.submitted = true;
+  this.userService.login(this.username, this.password).subscribe({
+    next: (res) => {
+      this.message = res.message;
+      if (res.status == 200) {
+        this.isSuccess = true;
+        setTimeout(() =>{
+          this.router.navigate(['user/dashboard']);
+        }, 1000);
       }
-    })
-  }
+    },
+    error: (err) => {
+     this.isSuccess = false;
+      this.message = err.message || 'Something went wrong!';
+    }
+  });
+}
+
 
   ngOnInit(): void {
 

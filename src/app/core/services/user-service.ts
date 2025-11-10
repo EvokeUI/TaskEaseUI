@@ -23,7 +23,7 @@ export class UserService {
         }
       }),
       catchError(error => {
-        console.error('Login error:', error);
+        //console.error('Login error:', error);
         return throwError(() => ({
           status: 'error',
           message: error.message || 'Something went wrong during login'

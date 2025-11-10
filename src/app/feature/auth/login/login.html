@@ -52,6 +52,9 @@
         >
           Login
         </button>
+        @if (message) {
+         <p [ngStyle]="isSuccess ? { color: 'green' } : { color: 'red' }" style="text-align: center;">{{ message }}</p>
+        }
         <div class="actions-row">
           <a class="forgot-link" href="#">Forgot Password?</a>
         </div>
