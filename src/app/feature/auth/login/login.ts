@@ -24,13 +24,15 @@ export class Login implements OnInit{
 
   onSubmit() {
     this.submitted = true;
-    console.log('Login form submitted with', this.username, this.password);
+    this.userService.login(this.username, this.password).subscribe((res) =>{
+      if(res.status == 200){
+        
+      }
+    })
   }
 
   ngOnInit(): void {
-    this.userService.login(this.username, this.password).subscribe((res) =>{
-      console.log(res);
-    });
+
   }
   
 }
