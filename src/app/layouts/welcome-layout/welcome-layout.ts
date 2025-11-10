@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './welcome-layout.html',
   styleUrl: './welcome-layout.css',
 })
-export class WelcomeLayout {
 
+export class WelcomeLayout {
+  
 }

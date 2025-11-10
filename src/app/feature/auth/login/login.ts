@@ -24,6 +24,5 @@ export class Login {
     this.submitted = true;
     console.log('Login form submitted with', this.username, this.password);
   }
-
-
+  
 }

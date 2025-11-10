@@ -16,9 +16,11 @@
             #usernameCtrl="ngModel"
             placeholder="Enter your username"
           />
-          <mat-error *ngIf="usernameCtrl.invalid && usernameCtrl.touched">
+          @if(usernameCtrl.invalid && usernameCtrl.touched){
+          <mat-error>
             Username is required
           </mat-error>
+        }
         </mat-form-field>
 
         <!-- Password -->
@@ -42,10 +44,9 @@
 
         <!-- Submit Button -->
         <button
-          matFab extended
+          mat-raised-button
           color="primary"
           class="full-width"
-          id="log_btn"
           [disabled]="loginForm.invalid"
         >
           Login
