@@ -1,13 +1,22 @@
 <mat-card class="outer-card">
   <div class="welcome-container">
     <mat-card class="intro-card">
-      <h2>Welcome to <span>TaskEase Application</span></h2>
-      <p>
-        An application that helps you manage your tasks in a smart, simple, and
-        efficient way. Stay organized, stay productive.
-      </p>
-      </mat-card>
-      
+      <div class="intro-content">
+        <h2>Simplify Your Work with <span>TaskEase</span></h2>
+        <p>
+          An application that helps you manage your tasks in a smart, simple, and
+          efficient way. Stay organized, stay productive.
+        </p>
+        
+        <div class="step-container">
+          <p><span>Register</span> <mat-icon>arrow_forward</mat-icon></p>
+          <p><span>Login</span> <mat-icon>arrow_forward</mat-icon></p>
+          <p><span>Start Creating Tasks</span></p>
+        </div>
+
+      </div>
+    </mat-card>
+
     <mat-card class="content-card">
       <router-outlet></router-outlet>
     </mat-card>
