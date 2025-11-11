@@ -17,6 +17,9 @@
             } @else if (submitted && f['firstname'].errors?.['minlength']) {
               <mat-error>Minimum 2 characters required</mat-error>
             }
+             @else if (submitted && f['firstname'].errors?.['pattern']) {
+              <mat-error>Only alphabets allowed</mat-error>
+            }
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
@@ -26,6 +29,9 @@
               <mat-error>Last Name is required</mat-error>
             } @else if (submitted && f['lastname'].errors?.['minlength']) {
               <mat-error>Minimum 2 characters required</mat-error>
+            }
+              @else if (submitted && f['lastname'].errors?.['pattern']) {
+              <mat-error>Only alphabets allowed</mat-error>
             }
           </mat-form-field>
         </div>
@@ -38,6 +44,7 @@
           } @else if (submitted && f['emailId'].errors?.['email']) {
             <mat-error>Please enter a valid email</mat-error>
           }
+          
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
@@ -60,7 +67,7 @@
           }
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit" class="btn-full">
+        <button mat-raised-button color="primary" type="submit" class="btn-full" [disabled]="this.registerForm.invalid">
           Register
         </button>
 
