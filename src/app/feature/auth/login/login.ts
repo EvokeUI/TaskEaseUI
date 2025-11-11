@@ -31,7 +31,7 @@ onSubmit() {
       if (res.status == 200) {
         this.isSuccess = true;
         setTimeout(() =>{
-          this.router.navigate(['user/dashboard']);
+          this.router.navigate(['user/dashboard/' + res.userId]);
         }, 1000);
       }
     },
