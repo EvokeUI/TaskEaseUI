@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule }  from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard, MatCardModule } from '@angular/material/card';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-signup',
   imports: [
@@ -12,7 +13,9 @@ import { MatCard, MatCardModule } from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-  MatCardModule],
+    RouterLink,
+  MatCardModule
+],
   templateUrl: './signup.html',
   styleUrl: './signup.css',
 })

@@ -7,6 +7,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
+  
   private userURL = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) {}
@@ -22,8 +23,8 @@ export class UserService {
           throw new Error('Invalid username or password');
         }
       }),
+      
       catchError(error => {
-        //console.error('Login error:', error);
         return throwError(() => ({
           status: 'error',
           message: error.message || 'Something went wrong during login'
