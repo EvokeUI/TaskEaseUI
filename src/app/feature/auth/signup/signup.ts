@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -6,6 +6,7 @@ import { MatInputModule }  from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-signup',
   imports: [
@@ -22,13 +23,18 @@ import { RouterLink } from '@angular/router';
 export class Signup {
    registerForm!: FormGroup;
   submitted = true;
+  private _snackBar = inject(MatSnackBar);
+   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds:number=5;
+
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      firstname: ['', [Validators.required, Validators.minLength(2)]],
-      lastname: ['', [Validators.required, Validators.minLength(2)]],
+      firstname: ['', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z]+$')]],
+      lastname: ['', [Validators.required, Validators.minLength(2)],Validators.pattern('^[a-zA-Z]+$')],
       emailId: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
@@ -59,6 +65,12 @@ export class Signup {
       return;
     }
     console.log('Form Value', this.registerForm.value);
+    this._snackBar.open('Registration succeusfull', 'Done', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+    });
+    this.registerForm.reset();
     // proceed with your logic… e.g., send to server
   }
 
