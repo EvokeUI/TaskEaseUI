@@ -25,10 +25,12 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ForgotPassword {
   constructor(){}
+
   username: string = '';
   message: string = '';
   isSuccess: boolean = false;
-  forgotPassword(){
 
+  forgotPassword(){
+    
   }
 }
