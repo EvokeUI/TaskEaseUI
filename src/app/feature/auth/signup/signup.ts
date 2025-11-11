@@ -5,8 +5,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule }  from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard, MatCardModule } from '@angular/material/card';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { UserService } from '../../../core/services/user-service';
 @Component({
   selector: 'app-signup',
   imports: [
@@ -24,18 +25,20 @@ export class Signup {
    registerForm!: FormGroup;
   submitted = true;
   private _snackBar = inject(MatSnackBar);
+  private userService=inject(UserService);
    horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds:number=5;
+  registrationError!: string;
 
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private router:Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.minLength(2),Validators.pattern('^[a-zA-Z]+$')]],
       lastname: ['', [Validators.required, Validators.minLength(2)],Validators.pattern('^[a-zA-Z]+$')],
-      emailId: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
     }, {
@@ -64,14 +67,41 @@ export class Signup {
     if (this.registerForm.invalid) {
       return;
     }
+
     console.log('Form Value', this.registerForm.value);
-    this._snackBar.open('Registration succeusfull', 'Done', {
+    // this._snackBar.open('Registration succeusfull', 'Done', {
+    //   horizontalPosition: this.horizontalPosition,
+    //   verticalPosition: this.verticalPosition,
+    //   duration: this.durationInSeconds * 1000,
+    // });
+    // this.registerForm.reset();
+    // proceed with your logic… e.g., send to server
+    this.userService.register(this.registerForm.value).subscribe({
+      next: (createdUser) => {
+      console.log('Registration successful:', createdUser);
+      this._snackBar.open('Registration was successfull', 'Done', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: this.durationInSeconds * 1000,
     });
-    this.registerForm.reset();
-    // proceed with your logic… e.g., send to server
+        // this.registerForm.reset();
+        this.submitted=false;
+        setTimeout(()=>{
+        this.router.navigate(['/taskease/login']);
+
+        },1000);
+
+      // maybe navigate to login page or show success message
+    },
+    error: (err: Error) => {
+      // err.message contains the user-friendly message from our handleError
+      this.registrationError = err.message;
+      // you can show this in the template (e.g., via a mat-error or some alert)
+    }
+  
+    }
+
+    )
   }
 
 }

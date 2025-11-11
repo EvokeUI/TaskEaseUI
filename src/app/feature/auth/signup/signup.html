@@ -38,10 +38,10 @@
 
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Email Id</mat-label>
-          <input matInput type="email" formControlName="emailId" placeholder="Enter email">
-          @if (submitted && f['emailId'].errors?.['required']) {
+          <input matInput type="email" formControlName="email" placeholder="Enter email">
+          @if (submitted && f['email'].errors?.['required']) {
             <mat-error>Email is required</mat-error>
-          } @else if (submitted && f['emailId'].errors?.['email']) {
+          } @else if (submitted && f['email'].errors?.['email']) {
             <mat-error>Please enter a valid email</mat-error>
           }
           

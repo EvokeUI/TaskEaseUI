@@ -1,22 +1,60 @@
 {
-    "users": [
-        {
-            "id" : 1,
-            "firstName": "Joslina",
-            "lastName": "Inti",
-            "email": "joslina@gmail.com",
-            "password":"1234",
-            "role": "admin"
-            
-        },
-         {
-            "id" : 2,
-            "firstName": "vivek",
-            "lastName": "verma",
-            "email": "vivek@gmail.com",
-            "password":"123445",
-            "role": "admin"
-            
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Joslina",
+      "lastName": "Inti",
+      "email": "joslina@gmail.com",
+      "password": "1234",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "firstName": "vivek",
+      "lastName": "verma",
+      "email": "vivek@gmail.com",
+      "password": "123445",
+      "role": "admin"
+    },
+    {
+      "id": "ad70",
+      "firstname": "sai",
+      "lastname": "pabba",
+      "email": "pabbateja70@gmail.com",
+      "password": "zxcvbnm",
+      "confirmPassword": "zxcvbnm"
+    },
+    {
+      "id": "a5a7",
+      "firstname": "rohith",
+      "lastname": "dandiboyna",
+      "email": "rohith123@gmail.com",
+      "password": "asdfghjkl",
+      "confirmPassword": "asdfghjkl"
+    },
+    {
+      "id": "4072",
+      "firstname": "vasanth",
+      "lastname": "katta",
+      "email": "vasanth@gmail.com",
+      "password": "qwertyuiop",
+      "confirmPassword": "qwertyuiop"
+    },
+    {
+      "id": "fb9c",
+      "firstname": "john",
+      "lastname": "steven",
+      "email": "john@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "121d",
+      "firstname": "srikanth",
+      "lastname": "kottu",
+      "email": "srikanth@gmail.com",
+      "password": "987654",
+      "confirmPassword": "987654"
+    }
+  ]
 }

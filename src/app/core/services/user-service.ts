@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, retry } from 'rxjs/operators';
+import { User } from '../../feature/auth/modals/user.modal';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,28 @@ export class UserService {
       })
 
     );
+  }
+
+  register(request: User): Observable<any> {
+    return this.http.post<any>(this.userURL, request).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+
+  }
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred.
+      errorMessage = `Client / network error: ${error.error.message}`;
+    } else {
+      // The backend returned an unsuccessful response code.
+      errorMessage = `Server error (code: ${error.status}): ${error.message}`;
+      // You may also inspect error.error for backend-specific message
+    }
+    // Optionally log to some remote logging infrastructure
+    console.error(errorMessage);
+    // Return an observable with a user-friendly error message
+    return throwError(() => new Error(errorMessage));
   }
 }
