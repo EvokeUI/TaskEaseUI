@@ -19,7 +19,7 @@ export class UserService {
         const user = users.find(u => u.email === username && u.password === password);
         
         if (user) {
-          return { status: '200', message: 'Login successful', userId: user.id,user  };
+          return { status: '200', message: 'Login successfully...!', userId: user.id,user  };
         } else {
           throw new Error('Invalid username or password');
         }
