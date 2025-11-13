@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-footer',
-  imports: [MatCardModule],
+  imports: [],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

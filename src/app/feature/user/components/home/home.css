@@ -1,0 +1,97 @@
+.container {
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.greet {
+  background: linear-gradient(90deg, #0052cc, #007bff);
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.greet h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.greet h1 span {
+  color: #ffeb3b;
+}
+
+.greet .subtitle {
+  margin-top: 5px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.task-summary {
+  margin-top: 25px;
+}
+
+.task-summary h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #444;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+}
+
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.task-card {
+  flex: 1 1 calc(25% - 20px);
+  padding: 15px 10px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.pending {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+}
+
+.in-progress {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+.completed {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.total {
+  background: linear-gradient(135deg, #396afc, #2948ff);
+}
+
+@media (max-width: 992px) {
+  .task-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .task-card {
+    flex: 1 1 100%;
+  }
+
+  .greet h1 {
+    font-size: 1.4rem;
+  }
+}

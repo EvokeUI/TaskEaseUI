@@ -11,6 +11,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  //verify user....
   verifyUser(username: string) {
     return this.http.get<any[]>(this.userURL).pipe(
       map((users) => {
@@ -18,7 +19,7 @@ export class AuthService {
         if (user) {
           return { status: 200, message: 'User found..', userId: user.id };
         } else {
-          return { status: 404, message: 'User not found.!!' };
+          return { status: 404, message: ' User not found.!!' };
         }
       }),
       catchError((error) => {
@@ -31,6 +32,8 @@ export class AuthService {
     );
   }
 
+
+  //reset password.....
  resetPassword(new_password: string, confirm_password: string, userid: string) {
   if (new_password !== confirm_password) {
     return throwError(() => ({
