@@ -67,15 +67,7 @@ export class Signup {
     if (this.registerForm.invalid) {
       return;
     }
-
     console.log('Form Value', this.registerForm.value);
-    // this._snackBar.open('Registration succeusfull', 'Done', {
-    //   horizontalPosition: this.horizontalPosition,
-    //   verticalPosition: this.verticalPosition,
-    //   duration: this.durationInSeconds * 1000,
-    // });
-    // this.registerForm.reset();
-    // proceed with your logic… e.g., send to server
     this.userService.register(this.registerForm.value).subscribe({
       next: (createdUser) => {
       console.log('Registration successful:', createdUser);
@@ -96,6 +88,13 @@ export class Signup {
     error: (err: Error) => {
       // err.message contains the user-friendly message from our handleError
       this.registrationError = err.message;
+      this._snackBar.open('something went wrong,please try again later', 'Done', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+    });
+    this.registerForm.reset();
+    this.submitted=false;
       // you can show this in the template (e.g., via a mat-error or some alert)
     }
   
