@@ -1,0 +1,101 @@
+/* ---------- Base Layout ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 16px;
+  background: linear-gradient(90deg, #1565c0, #1e88e5, #42a5f5);
+  color: white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ---------- Left Section ---------- */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.app-name {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Center Section (Search Bar) ---------- */
+.topbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-field {
+  width: 50%;
+  max-width: 400px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.search-field.mat-form-field {
+  margin: 0;
+}
+
+.mat-form-field-outline {
+  color: transparent;
+}
+
+.search-field input {
+  color: #1565c0;
+  font-weight: 500;
+}
+
+/* ---------- Right Section ---------- */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+mat-icon {
+  color: white;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+button[mat-icon-button]:hover mat-icon {
+  transform: scale(1.2);
+  color: #bbdefb;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 992px) {
+  .search-field {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-name {
+    display: none;
+  }
+
+  .search-field {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar-center {
+    display: none; /* hide search bar on very small screens */
+  }
+}

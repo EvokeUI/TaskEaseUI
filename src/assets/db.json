@@ -55,6 +55,14 @@
       "email": "srikanth@gmail.com",
       "password": "987654",
       "confirmPassword": "987654"
+    },
+    {
+      "id": "abe0",
+      "firstname": "vijay",
+      "lastname": "sunder",
+      "email": "vijay@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
     }
   ]
 }
