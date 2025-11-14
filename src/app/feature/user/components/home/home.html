@@ -1,6 +1,11 @@
 <div class="container">
   <mat-card class="greet">
-    <h1>Welcome, <span>{{userDetails?.firstName?.toUpperCase()}} {{userDetails?.lastName?.toUpperCase()}}</span></h1>
+    <h1> Welcome,
+      <span>
+        {{ userDetails.firstName[0].toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}
+        {{ userDetails.lastName[0].toUpperCase() + userDetails.lastName.slice(1).toLowerCase() }}
+      </span>
+    </h1>
     <p class="subtitle">Here's an overview of your task progress</p>
   </mat-card>
 
