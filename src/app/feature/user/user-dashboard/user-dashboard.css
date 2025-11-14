@@ -34,13 +34,13 @@ html, body {
 }
 
 /* --- Sidebar --- */
-.sidebar {
+/* .sidebar {
   grid-area: sidebar;
   background-color: #f4f6f8;
   border-right: 1px solid #ddd;
   padding: 1rem;
   overflow-y: auto;
-}
+} */
 
 /* --- Main Content --- */
 .load {
