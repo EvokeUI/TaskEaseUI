@@ -18,59 +18,67 @@
     },
     {
       "id": "ad70",
-      "firstname": "sai",
-      "lastname": "pabba",
+      "firstName": "sai",
+      "lastName": "pabba",
       "email": "pabbateja70@gmail.com",
       "password": "zxcvbnm",
       "confirmPassword": "zxcvbnm"
     },
     {
       "id": "a5a7",
-      "firstname": "rohith",
-      "lastname": "dandiboyna",
+      "firstName": "rohith",
+      "lastName": "dandiboyna",
       "email": "rohith123@gmail.com",
       "password": "asdfghjkl",
       "confirmPassword": "asdfghjkl"
     },
     {
       "id": "4072",
-      "firstname": "vasanth",
-      "lastname": "katta",
+      "firstName": "vasanth",
+      "lastName": "katta",
       "email": "vasanth@gmail.com",
       "password": "qwertyuiop",
       "confirmPassword": "qwertyuiop"
     },
     {
       "id": "fb9c",
-      "firstname": "john",
-      "lastname": "steven",
+      "firstName": "john",
+      "lastName": "steven",
       "email": "john@gmail.com",
       "password": "123456",
       "confirmPassword": "123456"
     },
     {
       "id": "121d",
-      "firstname": "srikanth",
-      "lastname": "kottu",
+      "firstName": "srikanth",
+      "lastName": "kottu",
       "email": "srikanth@gmail.com",
       "password": "987654",
       "confirmPassword": "987654"
     },
     {
       "id": "abe0",
-      "firstname": "vijay",
-      "lastname": "sunder",
+      "firstName": "vijay",
+      "lastName": "sunder",
       "email": "vijay@gmail.com",
       "password": "123456",
       "confirmPassword": "123456"
     },
     {
       "id": "b3d6",
-      "firstname": "Vivek",
-      "lastname": "Verma",
+      "firstName": "Vivek",
+      "lastName": "Verma",
       "email": "verma12@gmail.com",
       "password": "1234567",
       "confirmPassword": "123456"
+    },
+    {
+      "id": "71a0",
+      "firstName": "teja",
+      "lastName": "beepeta",
+      "email": "tejabeepeta@gmail.com",
+      "password": "lkjhgf",
+      "confirmPassword": "lkjhgf"
     }
   ]
 }
