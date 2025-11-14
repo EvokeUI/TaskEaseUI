@@ -57,4 +57,8 @@ export class UserService {
     // Return an observable with a user-friendly error message
     return throwError(() => new Error(errorMessage));
   }
+
+  getUserById(id: string): Observable<User>{
+   return this.http.get<User>(this.userURL + '/' + id);
+  }
 }
