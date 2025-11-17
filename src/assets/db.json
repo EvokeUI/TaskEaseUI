@@ -5,8 +5,24 @@
       "firstName": "Joslina",
       "lastName": "Inti",
       "email": "joslina@gmail.com",
-      "password": "12345",
-      "role": "admin"
+      "password": "1234",
+      "role": "admin",
+      "tasks": [
+        {
+          "title": "Review project plan",
+          "description": "Go through the Phase-1 project roadmap",
+          "createdDate": "2025-11-10",
+          "completionDate": "",
+          "status": "in-progress"
+        },
+        {
+          "title": "Team meeting",
+          "description": "Conduct weekly team status meeting",
+          "createdDate": "2025-11-12",
+          "completionDate": "",
+          "status": "pending"
+        }
+      ]
     },
     {
       "id": "2",
@@ -14,55 +30,102 @@
       "lastName": "verma",
       "email": "vivek@gmail.com",
       "password": "123445",
-      "role": "admin"
+      "role": "admin",
+      "tasks": [
+        {
+          "title": "Fix dashboard UI",
+          "description": "Improve card alignment and spacing",
+          "createdDate": "2025-11-14",
+          "completionDate": "",
+          "status": "pending"
+        },
+        {
+          "title": "Code review",
+          "description": "Review authentication module code",
+          "createdDate": "2025-11-13",
+          "completionDate": "",
+          "status": "in-progress"
+        },
+        {
+          "title": "Code review",
+          "description": "Review authentication module code",
+          "createdDate": "2025-11-13",
+          "completionDate": "2025-11-17",
+          "status": "completed"
+        }
+      ]
     },
     {
       "id": "ad70",
-      "firstname": "sai",
-      "lastname": "pabba",
+      "firstName": "sai",
+      "lastName": "pabba",
       "email": "pabbateja70@gmail.com",
       "password": "zxcvbnm",
-      "confirmPassword": "zxcvbnm"
+      "confirmPassword": "zxcvbnm",
+      "role": "user"
     },
     {
       "id": "a5a7",
-      "firstname": "rohith",
-      "lastname": "dandiboyna",
+      "firstName": "rohith",
+      "lastName": "dandiboyna",
       "email": "rohith123@gmail.com",
       "password": "asdfghjkl",
-      "confirmPassword": "asdfghjkl"
+      "confirmPassword": "asdfghjkl",
+      "role": ""
     },
     {
       "id": "4072",
-      "firstname": "vasanth",
-      "lastname": "katta",
+      "firstName": "vasanth",
+      "lastName": "katta",
       "email": "vasanth@gmail.com",
       "password": "qwertyuiop",
-      "confirmPassword": "qwertyuiop"
+      "confirmPassword": "qwertyuiop",
+      "role": "user"
     },
     {
       "id": "fb9c",
-      "firstname": "john",
-      "lastname": "steven",
+      "firstName": "john",
+      "lastName": "steven",
       "email": "john@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "role": ""
     },
     {
       "id": "121d",
-      "firstname": "srikanth",
-      "lastname": "kottu",
+      "firstName": "srikanth",
+      "lastName": "kottu",
       "email": "srikanth@gmail.com",
       "password": "987654",
-      "confirmPassword": "987654"
+      "confirmPassword": "987654",
+      "role":""
     },
     {
       "id": "abe0",
-      "firstname": "vijay",
-      "lastname": "sunder",
+      "firstName": "vijay",
+      "lastName": "sunder",
       "email": "vijay@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "role": ""
+    },
+    {
+      "id": "b3d6",
+      "firstName": "Vivek",
+      "lastName": "Verma",
+      "email": "verma12@gmail.com",
+      "password": "1234567",
+      "confirmPassword": "123456",
+      "role": ""
+    },
+    {
+      "id": "71a0",
+      "firstName": "teja",
+      "lastName": "beepeta",
+      "email": "tejabeepeta@gmail.com",
+      "password": "lkjhgf",
+      "confirmPassword": "lkjhgf",
+      "role": ""
     }
   ]
 }

@@ -1,0 +1,41 @@
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+/* Each sidebar item */
+.sidebar-links a.anchortag {
+  margin: 5px 0px 5px 0px;
+  padding: 10px 0px 10px 16px;
+  border-radius: 8px;
+  color: #333;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.sidebar-links a.anchortag:hover {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  transform: translateX(3px);
+}
+
+/* Active or selected link (optional if using routing) */
+.sidebar-links a.anchortag.active {
+  background-color: #1e88e5;
+  color: #fff;
+}
+
+/* Add icon alignment if you include icons later */
+.sidebar-links a.anchortag mat-icon {
+  margin-right: 12px;
+  color: inherit;
+}
+
+/* Optional: better text look */
+.sidebar-links a.anchortag span {
+  font-size: 15px;
+}

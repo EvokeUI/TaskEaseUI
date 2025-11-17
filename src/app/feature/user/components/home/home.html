@@ -1,6 +1,11 @@
 <div class="container">
   <mat-card class="greet">
-    <h1>Welcome, <span>Vivek Verma</span></h1>
+    <h1> Welcome,
+      <span>
+        {{ userDetails.firstName[0].toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}
+        {{ userDetails.lastName[0].toUpperCase() + userDetails.lastName.slice(1).toLowerCase() }}
+      </span>
+    </h1>
     <p class="subtitle">Here's an overview of your task progress</p>
   </mat-card>
 
@@ -9,40 +14,77 @@
     <div class="tasks">
       <mat-card class="task-card pending">
         <mat-card-header>
-          <mat-card-title>10</mat-card-title>
+          <mat-card-title>{{pendingTaskCount}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>Pending Tasks</mat-card-content>
       </mat-card>
 
       <mat-card class="task-card in-progress">
         <mat-card-header>
-          <mat-card-title>10</mat-card-title>
+          <mat-card-title>{{progressTaskCount}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>In Progress</mat-card-content>
       </mat-card>
 
       <mat-card class="task-card completed">
         <mat-card-header>
-          <mat-card-title>10</mat-card-title>
+          <mat-card-title>{{completedTaskCount}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>Completed</mat-card-content>
       </mat-card>
 
       <mat-card class="task-card total">
         <mat-card-header>
-          <mat-card-title>30</mat-card-title>
+          <mat-card-title>{{totalTasks}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>Total Tasks</mat-card-content>
       </mat-card>
     </div>
     <h2>Quick Actions</h2>
-    <div class="tasks">
-      <mat-card>
+    <div class="quick-actions">
+      <mat-card class="task-list">
         <mat-card-header>
-          <mat-card-title></mat-card-title>
-          <mat-card-content></mat-card-content>
+          <mat-card-title>
+            <button matButton="filled" (click)="taskList(userDetails.id)">Task Lists</button>
+          </mat-card-title>
         </mat-card-header>
+        <mat-card-content style="color: white;">
+            Click to see all tasks...
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="create">
+        <mat-card-header>
+          <mat-card-title>
+            <button matButton="filled" (click)="createTask(userDetails.id)">Create Task</button>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="color: white;">
+            Click to Create new task...
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="manage">
+        <mat-card-header>
+          <mat-card-title>
+            <button matButton="filled" (click)="manageTask(userDetails.id)">Manage Task</button>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="color: white;">
+            Click to manage your tasks...
+        </mat-card-content>
       </mat-card>
     </div>
+    <h2>Summary</h2>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        @if (todayCompletedTask > 0) {
+          <p style="color: green;">Great job, <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>
+          You completed <strong>{{ todayCompletedTask }}</strong> tasks today. Keep up the momentum!</p>
+        } @else {
+          <p style="color: red;">Hey <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}</strong>,
+          you haven't completed any tasks today. Let's try to finish at least one task!</p>
+        }
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
   </div>
 </div>

@@ -11,26 +11,26 @@
         <div class="two-col">
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>First Name</mat-label>
-            <input matInput formControlName="firstname" placeholder="Enter first name">
-            @if (submitted && f['firstname'].errors?.['required']) {
+            <input matInput formControlName="firstName" placeholder="Enter first name">
+            @if (submitted && f['firstName'].errors?.['required']) {
               <mat-error>First Name is required</mat-error>
-            } @else if (submitted && f['firstname'].errors?.['minlength']) {
+            } @else if (submitted && f['firstName'].errors?.['minlength']) {
               <mat-error>Minimum 2 characters required</mat-error>
             }
-             @else if (submitted && f['firstname'].errors?.['pattern']) {
+             @else if (submitted && f['firstName'].errors?.['pattern']) {
               <mat-error>Only alphabets allowed</mat-error>
             }
           </mat-form-field>
 
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastname" placeholder="Enter last name">
-            @if (submitted && f['lastname'].errors?.['required']) {
+            <input matInput formControlName="lastName" placeholder="Enter last name">
+            @if (submitted && f['lastName'].errors?.['required']) {
               <mat-error>Last Name is required</mat-error>
-            } @else if (submitted && f['lastname'].errors?.['minlength']) {
+            } @else if (submitted && f['lastName'].errors?.['minlength']) {
               <mat-error>Minimum 2 characters required</mat-error>
             }
-              @else if (submitted && f['lastname'].errors?.['pattern']) {
+              @else if (submitted && f['lastName'].errors?.['pattern']) {
               <mat-error>Only alphabets allowed</mat-error>
             }
           </mat-form-field>

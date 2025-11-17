@@ -5,6 +5,7 @@ import { Home } from './components/home/home';
 import { Profile } from './components/profile/profile';
 import { ManageTasks } from './components/manage-tasks/manage-tasks';
 import { CreateTasks } from './components/create-tasks/create-tasks';
+import { TaskList } from './components/task-list/task-list';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
       },
       {
         path: 'create-task', component: CreateTasks
+      },
+      {
+        path: 'task-list', component: TaskList
       }
     ]
   }
