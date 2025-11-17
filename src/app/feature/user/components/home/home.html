@@ -75,11 +75,16 @@
     </div>
     <h2>Summary</h2>
     <mat-list role="list">
-      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">
+        @if (todayCompletedTask > 0) {
+          <p style="color: green;">Great job, <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>
+          You completed <strong>{{ todayCompletedTask }}</strong> tasks today. Keep up the momentum!</p>
+        } @else {
+          <p style="color: red;">Hey <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}</strong>,
+          you haven't completed any tasks today. Let's try to finish at least one task!</p>
+        }
+      </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item role="listitem">Item 2</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item role="listitem">Item 3</mat-list-item>
     </mat-list>
   </div>
 </div>

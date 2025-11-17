@@ -45,6 +45,13 @@
           "createdDate": "2025-11-13",
           "completionDate": "",
           "status": "in-progress"
+        },
+        {
+          "title": "Code review",
+          "description": "Review authentication module code",
+          "createdDate": "2025-11-13",
+          "completionDate": "2025-11-17",
+          "status": "completed"
         }
       ]
     },

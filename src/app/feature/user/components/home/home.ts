@@ -21,6 +21,7 @@ export class Home implements OnInit{
   progressTaskCount: number = 0;
   completedTaskCount: number = 0;
   totalTasks: number = 0;
+  todayCompletedTask: number = 0;
 
   constructor(private route: ActivatedRoute, private userService: UserService, private router: Router){}
   ngOnInit(): void {
@@ -36,6 +37,10 @@ export class Home implements OnInit{
       this.progressTaskCount = this.userDetails.tasks.filter(t => t.status === 'in-progress').length
       this.completedTaskCount = this.userDetails.tasks.filter(t => t.status === 'completed').length
       this.totalTasks = this.userDetails.tasks.length;
+
+      const today = new Date().toISOString().split('T')[0];
+      this.todayCompletedTask = this.userDetails.tasks.filter(t => t.completionDate === today).length;
+
     });
 
     });
@@ -53,5 +58,6 @@ export class Home implements OnInit{
    taskList(id: string){
     this.router.navigate(['/user/dashboard/' + id + "/task-list"]);
   }
+
 
 }
