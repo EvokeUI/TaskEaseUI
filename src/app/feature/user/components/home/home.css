@@ -5,7 +5,7 @@
 }
 
 .greet {
-  background: linear-gradient(90deg, #0052cc, #007bff);
+  background: linear-gradient(90deg, #0052cc, #7ab4f1);
   color: #fff;
   padding: 20px 30px;
   border-radius: 12px;
@@ -65,7 +65,7 @@
 }
 
 .pending {
-  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  background: linear-gradient(135deg, #ff4b2b, #f988a2);
 }
 
 .in-progress {
@@ -77,7 +77,7 @@
 }
 
 .total {
-  background: linear-gradient(135deg, #396afc, #2948ff);
+  background: linear-gradient(135deg, #396afc, #94a1ee);
 }
 .quick-actions {
   display: flex;
@@ -103,20 +103,15 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+.quick-actions .task-list{
+  background: linear-gradient(135deg, #2baa4b, #5dd1f2);
+}
 .quick-actions .create {
-  background: linear-gradient(135deg, #007bff, #00c6ff);
+  background: linear-gradient(135deg, #007bff, #94dbef);
 }
 
 .quick-actions .manage {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b);
-}
-
-.quick-actions .task-lists {
-  background: linear-gradient(135deg, #28a745, #6dd5ed);
-}
-
-.quick-actions mat-card:nth-child(3) {
-  background: linear-gradient(135deg, #28a745, #6dd5ed);
+  background: linear-gradient(135deg, #ff416c, #f5826e);
 }
 
 .quick-actions button {

@@ -25,7 +25,7 @@ const routes: Routes = [
         path: 'create-task', component: CreateTasks
       },
       {
-        path: 'app-task-list', component: TaskList
+        path: 'task-list', component: TaskList
       }
     ]
   }

@@ -6,7 +6,23 @@
       "lastName": "Inti",
       "email": "joslina@gmail.com",
       "password": "1234",
-      "role": "admin"
+      "role": "admin",
+      "tasks": [
+        {
+          "title": "Review project plan",
+          "description": "Go through the Phase-1 project roadmap",
+          "createdDate": "2025-11-10",
+          "completionDate": "",
+          "status": "in-progress"
+        },
+        {
+          "title": "Team meeting",
+          "description": "Conduct weekly team status meeting",
+          "createdDate": "2025-11-12",
+          "completionDate": "",
+          "status": "pending"
+        }
+      ]
     },
     {
       "id": "2",
@@ -14,7 +30,23 @@
       "lastName": "verma",
       "email": "vivek@gmail.com",
       "password": "123445",
-      "role": "admin"
+      "role": "admin",
+      "tasks": [
+        {
+          "title": "Fix dashboard UI",
+          "description": "Improve card alignment and spacing",
+          "createdDate": "2025-11-14",
+          "completionDate": "",
+          "status": "pending"
+        },
+        {
+          "title": "Code review",
+          "description": "Review authentication module code",
+          "createdDate": "2025-11-13",
+          "completionDate": "",
+          "status": "in-progress"
+        }
+      ]
     },
     {
       "id": "ad70",
@@ -22,7 +54,8 @@
       "lastName": "pabba",
       "email": "pabbateja70@gmail.com",
       "password": "zxcvbnm",
-      "confirmPassword": "zxcvbnm"
+      "confirmPassword": "zxcvbnm",
+      "role": "user"
     },
     {
       "id": "a5a7",
@@ -30,7 +63,8 @@
       "lastName": "dandiboyna",
       "email": "rohith123@gmail.com",
       "password": "asdfghjkl",
-      "confirmPassword": "asdfghjkl"
+      "confirmPassword": "asdfghjkl",
+      "role": ""
     },
     {
       "id": "4072",
@@ -38,7 +72,8 @@
       "lastName": "katta",
       "email": "vasanth@gmail.com",
       "password": "qwertyuiop",
-      "confirmPassword": "qwertyuiop"
+      "confirmPassword": "qwertyuiop",
+      "role": "user"
     },
     {
       "id": "fb9c",
@@ -46,7 +81,8 @@
       "lastName": "steven",
       "email": "john@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "role": ""
     },
     {
       "id": "121d",
@@ -54,7 +90,8 @@
       "lastName": "kottu",
       "email": "srikanth@gmail.com",
       "password": "987654",
-      "confirmPassword": "987654"
+      "confirmPassword": "987654",
+      "role":""
     },
     {
       "id": "abe0",
@@ -62,7 +99,8 @@
       "lastName": "sunder",
       "email": "vijay@gmail.com",
       "password": "123456",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "role": ""
     },
     {
       "id": "b3d6",
@@ -70,7 +108,8 @@
       "lastName": "Verma",
       "email": "verma12@gmail.com",
       "password": "1234567",
-      "confirmPassword": "123456"
+      "confirmPassword": "123456",
+      "role": ""
     },
     {
       "id": "71a0",
@@ -78,7 +117,8 @@
       "lastName": "beepeta",
       "email": "tejabeepeta@gmail.com",
       "password": "lkjhgf",
-      "confirmPassword": "lkjhgf"
+      "confirmPassword": "lkjhgf",
+      "role": ""
     }
   ]
 }

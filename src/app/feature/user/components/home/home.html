@@ -14,38 +14,48 @@
     <div class="tasks">
       <mat-card class="task-card pending">
         <mat-card-header>
-          <mat-card-title>10</mat-card-title>
+          <mat-card-title>{{pendingTaskCount}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>Pending Tasks</mat-card-content>
       </mat-card>
 
       <mat-card class="task-card in-progress">
         <mat-card-header>
-          <mat-card-title>10</mat-card-title>
+          <mat-card-title>{{progressTaskCount}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>In Progress</mat-card-content>
       </mat-card>
 
       <mat-card class="task-card completed">
         <mat-card-header>
-          <mat-card-title>10</mat-card-title>
+          <mat-card-title>{{completedTaskCount}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>Completed</mat-card-content>
       </mat-card>
 
       <mat-card class="task-card total">
         <mat-card-header>
-          <mat-card-title>30</mat-card-title>
+          <mat-card-title>{{totalTasks}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>Total Tasks</mat-card-content>
       </mat-card>
     </div>
     <h2>Quick Actions</h2>
     <div class="quick-actions">
+      <mat-card class="task-list">
+        <mat-card-header>
+          <mat-card-title>
+            <button matButton="filled" (click)="taskList(userDetails.id)">Task Lists</button>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="color: white;">
+            Click to see all tasks...
+        </mat-card-content>
+      </mat-card>
       <mat-card class="create">
         <mat-card-header>
           <mat-card-title>
-            <button matButton="filled">Create Task</button>
+            <button matButton="filled" (click)="createTask(userDetails.id)">Create Task</button>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content style="color: white;">
@@ -55,21 +65,11 @@
       <mat-card class="manage">
         <mat-card-header>
           <mat-card-title>
-            <button matButton="filled">Manage Task</button>
+            <button matButton="filled" (click)="manageTask(userDetails.id)">Manage Task</button>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content style="color: white;">
             Click to manage your tasks...
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="create">
-        <mat-card-header>
-          <mat-card-title>
-            <button matButton="filled">Task Lists</button>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content style="color: white;">
-            Click to see all tasks...
         </mat-card-content>
       </mat-card>
     </div>
