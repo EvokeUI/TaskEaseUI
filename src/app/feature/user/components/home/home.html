@@ -77,11 +77,33 @@
     <mat-list role="list">
       <mat-list-item role="listitem">
         @if (todayCompletedTask > 0) {
-          <p style="color: green;">Great job, <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>
-          You completed <strong>{{ todayCompletedTask }}</strong> tasks today. Keep up the momentum!</p>
-        } @else {
-          <p style="color: red;">Hey <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}</strong>,
-          you haven't completed any tasks today. Let's try to finish at least one task!</p>
+          <p style="color: green;">
+            Great job, <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>
+            You completed <strong>{{ todayCompletedTask }}</strong> tasks today. Keep up the momentum!
+          </p>
+        }
+        @else {
+          @if (totalTasks == 0) {
+            <p style="color: rgb(235, 25, 14)">No task available...! Try creating a new task.</p>
+          }
+          @else {
+            <p style="color: rgb(179, 115, 25);">
+              Hey
+              <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>,
+              you haven't completed any tasks today. Let's try to finish at least one task!
+            </p>
+          }
+        }
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        @if (todayCreatedTask > 0) {
+          <p style="color: rgb(215, 77, 26);">
+            Today, you have created or been assigned {{ todayCreatedTask }} tasks!!
+          </p>
+        }
+        @else {
+          <p style="color: rgb(178, 133, 29);">No task created or assigned today!!</p>
         }
       </mat-list-item>
       <mat-divider></mat-divider>
