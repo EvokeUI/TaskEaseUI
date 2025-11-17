@@ -6,10 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../auth/modals/user.modal';
 import { UserService } from '../../../../core/services/user-service';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-home',
-  imports: [MatCardModule, MatButtonModule, MatListModule, MatIconModule],
+  imports: [MatCardModule, MatButtonModule, MatListModule, MatIconModule, MatFormFieldModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -22,6 +23,10 @@ export class Home implements OnInit{
   completedTaskCount: number = 0;
   totalTasks: number = 0;
   todayCompletedTask: number = 0;
+  todayCreatedTask: number = 0;
+
+  selectedFilter: string = 'today';
+
 
   constructor(private route: ActivatedRoute, private userService: UserService, private router: Router){}
   ngOnInit(): void {
@@ -40,6 +45,8 @@ export class Home implements OnInit{
 
       const today = new Date().toISOString().split('T')[0];
       this.todayCompletedTask = this.userDetails.tasks.filter(t => t.completionDate === today).length;
+
+      this.todayCreatedTask = this.userDetails.tasks.filter(t => t.createdDate === today).length;
 
     });
 

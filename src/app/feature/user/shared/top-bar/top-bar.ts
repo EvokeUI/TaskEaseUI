@@ -33,7 +33,6 @@ export class TopBar {
       this.userDetails = res;
       console.log(this.userDetails);
 
-      
     });
 
 
