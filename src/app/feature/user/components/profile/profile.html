@@ -1,1 +1,46 @@
-<p>profile settings works!</p>
+<div class="profile-container">
+
+  <!-- Left Section – User Info -->
+  <div class="profile-card">
+    <div class="avatar">
+      <span>{{ userDetails.firstName[0] | uppercase }}</span>
+    </div>
+
+    <h2 class="user-name">{{ userDetails.firstName }}</h2>
+    <p class="user-email">{{ userDetails.email }}</p>
+
+    <!-- <p class="section-label">Role</p>
+    <p class="section-content">{{ userDetails.role }}</p> -->
+
+    <!-- <p class="join-date">
+      Joined on {{ user?.createdAt | date:'longDate' }}
+    </p> -->
+
+    <button mat-stroked-button color="primary" class="profile-pic-btn">
+      Change Profile Picture
+    </button>
+  </div>
+
+  <!-- Right Section – Editable Sections -->
+  <div class="edit-sections">
+
+    <h2 class="section-title">Editable Sections</h2>
+
+    <button mat-raised-button color="primary" class="edit-btn">
+      Update Name
+    </button>
+
+    <button mat-raised-button color="primary" class="edit-btn">
+      Update Email
+    </button>
+
+    <!-- Security Section -->
+    <h2 class="section-title">Security</h2>
+
+    <button mat-raised-button color="primary" class="security-btn">
+      Change Password
+    </button>
+
+  </div>
+
+</div>
