@@ -11,7 +11,7 @@
       <mat-icon matPrefix>search</mat-icon>
       <input
         matInput
-        placeholder="Search tasks, projects, or users..."
+        placeholder="Search tasks, projects..."
         [(ngModel)]="searchQuery"
         (keyup.enter)="onSearch()"
       />
@@ -30,23 +30,25 @@
   <!-- Right Section: Profile Menu -->
   <div class="topbar-right">
     <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Account">
-      <mat-icon>account_circle</mat-icon>
+      <mat-icon class="circleIcon">account_circle</mat-icon>
     </button>
 
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/user/profile">
-        <mat-icon>person</mat-icon>
-        <span>Profile</span>
-      </button>
-      <button mat-menu-item routerLink="/user/settings">
-        <mat-icon>settings</mat-icon>
-        <span>Settings</span>
-      </button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        <span>Logout</span>
-      </button>
-    </mat-menu>
+      <mat-menu #menu="matMenu" class="profile-menu">
+        <button mat-menu-item>
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+
+        <button mat-menu-item (click)="goProfileSettings(userDetails.id)">
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
   </div>
 </mat-toolbar>

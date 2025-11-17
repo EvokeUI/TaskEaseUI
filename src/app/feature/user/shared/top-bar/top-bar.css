@@ -43,7 +43,7 @@
 .search-field {
   /* margin-top: 30px; */
   width: 60%;
-  height: 60px;
+  height: 70px;
   max-width: 550px;
   border-radius: 6px;
   position: relative;
@@ -116,4 +116,41 @@ mat-icon {
   .topbar-center {
     display: none;
   }
+}
+
+
+/* Profile Menu Styling */
+.profile-menu {
+  border-radius: 15px !important;
+  overflow: hidden !important;
+}
+
+/* Material menu panel */
+.mat-mdc-menu-panel {
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0) !important; /* Blue gradient */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Menu items */
+.mat-mdc-menu-item {
+  color: blue !important;
+  font-weight: 500;
+}
+
+.mat-mdc-menu-item:hover {
+  background: rgba(114, 142, 232, 0.15) !important;
+}
+
+/* Icons inside menu */
+.mat-mdc-menu-item mat-icon {
+  color: blue !important;
+}
+
+/* Logout item with a subtle red on hover */
+.mat-mdc-menu-item:last-child:hover {
+  background: rgba(225, 110, 22, 0.2) !important;
+}
+.circleIcon{
+  width: 40px;
 }

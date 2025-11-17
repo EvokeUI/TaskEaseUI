@@ -8,6 +8,8 @@ import { MatDivider } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
 import { MatFormField, MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { User } from '../../../auth/modals/user.modal';
+import { UserService } from '../../../../core/services/user-service';
 
 
 @Component({
@@ -17,9 +19,26 @@ import { CommonModule } from '@angular/common';
   styleUrl: './top-bar.css',
 })
 export class TopBar {
-  constructor(private router: Router) {}
+  constructor(private router: Router,private userService:UserService) {}
 
   searchQuery:string='';
+  userDetails!: User;
+  userId: any;
+
+
+    ngOnInit(): void {
+ 
+
+      this.userService.getUserById(this.userId).subscribe((res: User) =>{
+      this.userDetails = res;
+      console.log(this.userDetails);
+
+      
+    });
+
+
+
+  }
 
   onSearch(): void {
     if (this.searchQuery.trim()) {
@@ -32,9 +51,13 @@ export class TopBar {
     this.searchQuery = '';
   }
 
+  goProfileSettings(id:any){
+    this.router.navigate(['user/dashboard/' + id + "/profile"]);
+  }
+  
   logout(): void {
     localStorage.clear();
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['/taskease/login']);
   }
 }
 
