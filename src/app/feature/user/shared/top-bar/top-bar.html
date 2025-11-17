@@ -1,31 +1,35 @@
 <mat-toolbar class="topbar">
-  <!-- Left Section: App Logo / Name -->
+  <!-- Left Section: Logo + App Name -->
   <div class="topbar-left">
     <!-- <img src="assets/logo.png" alt="TaskEase Logo" class="logo" /> -->
     <span class="app-name">TaskEase</span>
   </div>
-<!-- 
+
+  <!-- Center Section: Search Bar -->
   <div class="topbar-center">
-    <mat-form-field appearance="outline" class="search-field">
-        <mat-icon matPrefix>search</mat-icon>
-        <input matInput placeholder="Search tasks, projects..." [(ngModel)]="searchQuery" />
+    <mat-form-field class="search-field" >
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        matInput
+        placeholder="Search tasks, projects, or users..."
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="onSearch()"
+      />
+      <button
+        *ngIf="searchQuery"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearSearch()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
+  </div>
 
-  </div> -->
-
-  <span class="spacer"></span>
-
-  <!-- Right Section: Icons & Profile Menu -->
+  <!-- Right Section: Profile Menu -->
   <div class="topbar-right">
-    <button mat-icon-button matTooltip="Notifications">
-      <mat-icon>notifications</mat-icon>
-    </button>
-
-    <button mat-icon-button matTooltip="Messages">
-      <mat-icon>mail_outline</mat-icon>
-    </button>
-
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Account">
       <mat-icon>account_circle</mat-icon>
     </button>
 

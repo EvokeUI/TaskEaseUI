@@ -6,12 +6,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDivider } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/input';
+import { MatFormField, MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-top-bar',
-  imports: [MatToolbarModule,MatIconModule,MatButtonModule,MatMenuModule,MatDivider,FormsModule],
+  imports: [MatToolbarModule,MatIconModule,MatButtonModule,MatMenuModule,MatDivider,FormsModule,MatFormField,CommonModule,MatInputModule],
   templateUrl: './top-bar.html',
   styleUrl: './top-bar.css',
 })
@@ -20,14 +21,20 @@ export class TopBar {
 
   searchQuery:string='';
 
-  logout() {
+  onSearch(): void {
+    if (this.searchQuery.trim()) {
+      console.log('Searching for:', this.searchQuery);
+      // You can trigger a search/filter here, or navigate to a results page
+    }
+  }
+
+  clearSearch(): void {
+    this.searchQuery = '';
+  }
+
+  logout(): void {
     localStorage.clear();
     this.router.navigate(['/auth/login']);
-  }
-  
-  onSearch(): void {
-    console.log('Searching for:', this.searchQuery);
-    // You can later route to a search page or filter dashboard results here
   }
 }
 
