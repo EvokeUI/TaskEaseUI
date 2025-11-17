@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -19,7 +19,7 @@ import { UserService } from '../../../../core/services/user-service';
   styleUrl: './top-bar.css',
 })
 export class TopBar {
-  constructor(private router: Router,private userService:UserService) {}
+  constructor(private route:ActivatedRoute,private router: Router,private userService:UserService) {}
 
   searchQuery:string='';
   userDetails!: User;
@@ -28,12 +28,18 @@ export class TopBar {
 
     ngOnInit(): void {
  
+      this.route.params.subscribe((res) =>{
+      this.userId = res['id'];
+      console.log(this.userId);
 
       this.userService.getUserById(this.userId).subscribe((res: User) =>{
       this.userDetails = res;
       console.log(this.userDetails);
 
+      
     });
+
+
 
 
 
