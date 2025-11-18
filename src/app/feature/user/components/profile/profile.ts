@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../../core/services/user-service';
 import { User } from '../../../auth/modals/user.modal';
-import { DatePipe, UpperCasePipe } from '@angular/common';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
-  imports: [UpperCasePipe,DatePipe],
+  imports: [UpperCasePipe],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })

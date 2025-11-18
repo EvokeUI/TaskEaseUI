@@ -34,15 +34,10 @@ export class TopBar {
       this.userService.getUserById(this.userId).subscribe((res: User) =>{
       this.userDetails = res;
       console.log(this.userDetails);
-
-      
     });
-
-
-
-
-
-  }
+    
+  });
+}
  
   onSearch(): void {
     if (this.searchQuery.trim()) {
