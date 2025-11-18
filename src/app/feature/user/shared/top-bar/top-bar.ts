@@ -10,8 +10,8 @@ import { MatFormField, MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { User } from '../../../auth/modals/user.modal';
 import { UserService } from '../../../../core/services/user-service';
-
-
+ 
+ 
 @Component({
   selector: 'app-top-bar',
   imports: [MatToolbarModule,MatIconModule,MatButtonModule,MatMenuModule,MatDivider,FormsModule,MatFormField,CommonModule,MatInputModule],
@@ -20,50 +20,51 @@ import { UserService } from '../../../../core/services/user-service';
 })
 export class TopBar {
   constructor(private route:ActivatedRoute,private router: Router,private userService:UserService) {}
-
+ 
   searchQuery:string='';
   userDetails!: User;
   userId: any;
-
-
+ 
+ 
     ngOnInit(): void {
  
       this.route.params.subscribe((res) =>{
       this.userId = res['id'];
       console.log(this.userId);
-
+ 
       this.userService.getUserById(this.userId).subscribe((res: User) =>{
       this.userDetails = res;
       console.log(this.userDetails);
-
-      
+ 
+     
+ 
     });
-
-
-
-
-
+ 
+    });
+ 
+ 
+ 
+ 
+ 
   }
-
+ 
   onSearch(): void {
     if (this.searchQuery.trim()) {
       console.log('Searching for:', this.searchQuery);
       // You can trigger a search/filter here, or navigate to a results page
     }
   }
-
+ 
   clearSearch(): void {
     this.searchQuery = '';
   }
-
+ 
   goProfileSettings(id:any){
     this.router.navigate(['user/dashboard/' + id + "/profile"]);
   }
-  
+ 
   logout(): void {
     localStorage.clear();
     this.router.navigate(['/taskease/login']);
   }
 }
-
-
