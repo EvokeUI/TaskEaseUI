@@ -14,7 +14,7 @@ import { UserService } from '../../../../core/services/user-service';
  
 @Component({
   selector: 'app-top-bar',
-  imports: [MatToolbarModule,MatIconModule,MatButtonModule,MatMenuModule,MatDivider,FormsModule,MatFormField,CommonModule,MatInputModule],
+  imports: [MatToolbarModule,MatIconModule,MatButtonModule,MatMenuModule,FormsModule,MatFormField,CommonModule,MatInputModule],
   templateUrl: './top-bar.html',
   styleUrl: './top-bar.css',
 })
@@ -27,7 +27,6 @@ export class TopBar {
  
  
     ngOnInit(): void {
- 
       this.route.params.subscribe((res) =>{
       this.userId = res['id'];
       console.log(this.userId);
@@ -35,23 +34,19 @@ export class TopBar {
       this.userService.getUserById(this.userId).subscribe((res: User) =>{
       this.userDetails = res;
       console.log(this.userDetails);
- 
-     
- 
+
+      
     });
- 
-    });
- 
- 
- 
- 
- 
+
+
+
+
+
   }
  
   onSearch(): void {
     if (this.searchQuery.trim()) {
       console.log('Searching for:', this.searchQuery);
-      // You can trigger a search/filter here, or navigate to a results page
     }
   }
  
