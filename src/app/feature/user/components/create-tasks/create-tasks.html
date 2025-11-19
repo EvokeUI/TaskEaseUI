@@ -1,1 +1,117 @@
-<p>create-tasks works!</p>
+<mat-card class="story-card">
+  <mat-card-header>
+    <mat-card-title class="create-story-title">Create User Story</mat-card-title>
+    <mat-card-subtitle class="create-story-subtitle">Fill in the details below</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="storyForm" (ngSubmit)="onSubmit()" novalidate class="story-form">
+
+      <!-- Title -->
+      <div class="form-field">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" placeholder="Enter story title" />
+        </mat-form-field>
+        @if (getControl('title')?.invalid && (getControl('title')?.dirty || getControl('title')?.touched)) {
+          @if (getControl('title')?.hasError('required')) {
+            <mat-error class="error-message">Title is required.</mat-error>
+          } @else if (getControl('title')?.hasError('maxlength')) {
+            <mat-error class="error-message">Title is too long.</mat-error>
+          }
+        }
+      </div>
+
+      <!-- Description -->
+      <div class="form-field">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" rows="4"
+                    placeholder="As a user, I want… so that…"></textarea>
+        </mat-form-field>
+
+        @if (getControl('description')?.invalid && (getControl('description')?.dirty || getControl('description')?.touched)) {
+          <mat-error class="error-message">Description is required.</mat-error>
+        }
+      </div>
+
+      <!-- Acceptance Criteria -->
+      <div class="form-field">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Acceptance Criteria</mat-label>
+          <textarea matInput formControlName="acceptanceCriteria" rows="3"
+                    placeholder="Define conditions for done"></textarea>
+        </mat-form-field>
+
+        @if (getControl('acceptanceCriteria')?.invalid && (getControl('acceptanceCriteria')?.dirty || getControl('acceptanceCriteria')?.touched)) {
+          <mat-error class="error-message">Acceptance Criteria is required.</mat-error>
+        }
+      </div>
+
+      <!-- Story Points -->
+      <div class="form-field">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Story Points</mat-label>
+          <input matInput type="number" formControlName="storyPoints" placeholder="e.g. 3" />
+        </mat-form-field>
+
+        @if (getControl('storyPoints')?.invalid && (getControl('storyPoints')?.dirty || getControl('storyPoints')?.touched)) {
+          @if (getControl('storyPoints')?.hasError('required')) {
+            <mat-error class="error-message">Estimate is required.</mat-error>
+          } @else if (getControl('storyPoints')?.hasError('min')) {
+            <mat-error class="error-message">Story points can’t be negative.</mat-error>
+          }
+        }
+      </div>
+
+      <!-- Priority & Status -->
+      <div class="form-field two-column">
+        <mat-form-field appearance="outline">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority">
+            @for (p of priorities; track p) {
+              <mat-option [value]="p">{{ p }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            @for (s of statuses; track s) {
+              <mat-option [value]="s">{{ s }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Assigned To / Due Date -->
+      <div class="form-field two-column">
+        <mat-form-field appearance="outline">
+          <mat-label>Assigned To</mat-label>
+          <mat-select formControlName="assignedTo">
+            @for (u of users; track u.id) {
+              <mat-option [value]="u.id">{{ u.name }}</mat-option>
+            } @empty {
+              <mat-option disabled>No users available</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Due Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dueDate" placeholder="Select due date" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <!-- Buttons -->
+      <mat-card-actions class="form-buttons">
+        <button mat-raised-button color="primary" type="submit" [disabled]="storyForm.invalid">
+          Create Story
+        </button>
+      </mat-card-actions>
+
+    </form>
+  </mat-card-content>
+</mat-card>
