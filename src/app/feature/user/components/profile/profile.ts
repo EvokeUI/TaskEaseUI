@@ -70,7 +70,7 @@ export class Profile {
         this.dialog.closeAll();
       });
   }
-
+  
   saveEmail(){
     if(this.emailForm.invalid) return;
     this.userService.updateEmail(this.userId,this.emailForm.value)
@@ -80,6 +80,10 @@ export class Profile {
     })
   }
 
+
+  cancel() {
+    this.dialog.closeAll();
+  }
 }
 
 

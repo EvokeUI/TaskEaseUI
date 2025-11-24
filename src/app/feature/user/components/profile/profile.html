@@ -68,7 +68,7 @@
   </div>
 
   <div class="dialog-actions">
-    <button class="cancel-btn" mat-dialog-close>Cancel</button>
+    <button class="cancel-btn" mat-dialog-close (click)="cancel()">Cancel</button>
     <button class="save-btn" mat-raised-button (click)="saveName()">Save</button>
   </div>
 </ng-template>
@@ -89,7 +89,7 @@
   </div>
 
   <div class="dialog-actions">
-    <button class="cancel-btn" mat-dialog-close>Cancel</button>
+    <button class="cancel-btn" mat-dialog-close (click)="cancel()">Cancel</button>
     <button class="save-btn" mat-raised-button (click)="saveEmail()">Save</button>
   </div>
 </ng-template>
