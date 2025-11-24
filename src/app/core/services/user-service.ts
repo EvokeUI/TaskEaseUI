@@ -1,30 +1,31 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, of } from 'rxjs';
-import { map, catchError, retry } from 'rxjs/operators';
-import { User } from '../../feature/auth/modals/user.modal';
+import { map, catchError, retry, switchMap } from 'rxjs/operators';
+import { Task, User } from '../../feature/auth/modals/user.modal';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  
+
+
   private userURL = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
     return this.http.get<any[]>(this.userURL).pipe(
       map(users => {
         const user = users.find(u => u.email === username && u.password === password);
-        
+
         if (user) {
-          return { status: '200', message: 'Login successfully...!', userId: user.id,user  };
+          return { status: '200', message: 'Login successfully...!', userId: user.id, user };
         } else {
           throw new Error('Invalid username or password');
         }
       }),
-      
+
       catchError(error => {
         return throwError(() => ({
           status: 'error',
@@ -42,6 +43,20 @@ export class UserService {
     );
 
   }
+  addTaskToUser(userId: any, newTask: Task) {
+    return this.http.get<User>(`http://localhost:3000/users/${userId}`).pipe(
+      switchMap(user => {
+        const updatedTasks = [...(user.tasks || []), newTask];
+        return this.http.put(`http://localhost:3000/users/${userId}`, {
+          ...user,
+          tasks: updatedTasks
+        });
+      }),
+      retry(1),
+      catchError(this.handleError)
+
+    );
+  }
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -58,8 +73,8 @@ export class UserService {
     return throwError(() => new Error(errorMessage));
   }
 
-  getUserById(id: string): Observable<User>{
-   return this.http.get<User>(this.userURL + '/' + id);
+  getUserById(id: string): Observable<User> {
+    return this.http.get<User>(this.userURL + '/' + id);
   }
 
   updateUserName(id:string,data:any):Observable<User>{
