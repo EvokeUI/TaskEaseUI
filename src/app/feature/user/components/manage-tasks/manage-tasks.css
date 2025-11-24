@@ -1,0 +1,20 @@
+mat-card{
+    padding: 10px;
+    background: linear-gradient(90deg, #0052cc, #7ab4f1);
+    margin: 10px;
+}
+mat-card h2{
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+table{
+    padding: 10px;
+}
+table th{
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+a{
+    margin: 0px 10px;
+}

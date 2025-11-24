@@ -159,6 +159,86 @@ mat-list-item p {
   overflow-wrap: anywhere;
 }
 
+.quick-update {
+  background: linear-gradient(135deg,#2193b0, #6dd5ed);
+  color: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+  transition: all 0.3s ease-in-out;
+}
+
+.quick-update:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+  /* background: linear-gradient(135deg, #74ebd5, #00c6fb); */
+}
+
+.quick-update-header {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.quick-update-header strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quick-update-text {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.filter-date-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12px 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.filter-date-input {
+  padding: 8px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.success-msg {
+  color: #05fda2;
+  font-weight: 500;
+}
+
+.error-msg {
+  color: #ff4c4c;
+  font-weight: 500;
+}
+
+.warning-msg {
+  color: #ffcf4d;
+  font-weight: 500;
+}
+
+.assigned-msg {
+  color: #ffe9c5;
+  font-weight: 500;
+}
+
+.no-creation-msg {
+  color: #ffefb0;
+  font-weight: 500;
+}
+
 
 @media (max-width: 992px) {
   .task-card {

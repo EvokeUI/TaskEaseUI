@@ -74,39 +74,57 @@
       </mat-card>
     </div>
     <h2>Summary</h2>
-    <mat-list role="list">
-      <mat-list-item role="listitem">
-        @if (todayCompletedTask > 0) {
-          <p style="color: green;">
-            Great job, <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>
-            You completed <strong>{{ todayCompletedTask }}</strong> tasks today. Keep up the momentum!
-          </p>
-        }
-        @else {
-          @if (totalTasks == 0) {
-            <p style="color: rgb(235, 25, 14)">No task available...! Try creating a new task.</p>
-          }
-          @else {
-            <p style="color: rgb(179, 115, 25);">
-              Hey
-              <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}!</strong>,
-              you haven't completed any tasks today. Let's try to finish at least one task!
+    <mat-card class="quick-update">
+      <div class="quick-update-header">
+        <strong>Quick Update</strong>
+        <p class="quick-update-text">
+          Select a date below to view your task completion and creation summary for that specific day.
+        </p>
+      </div>
+      <div class="filter-date-wrapper">
+        <label class="filter-label">Filter By Date:</label>
+        <input type="date" [(ngModel)]="cust_date" (change)="onChange()" matInput class="filter-date-input">
+      </div>
+      <mat-list role="list">
+        <mat-list-item role="listitem">
+          @if (todayCompletedTask > 0) {
+            <p class="success-msg">
+              Great job,
+              <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}</strong>!
+              You completed <strong>{{ todayCompletedTask }}</strong> tasks on
+              <strong>{{ cust_date }}</strong>. Keep up the momentum!
             </p>
           }
-        }
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        @if (todayCreatedTask > 0) {
-          <p style="color: rgb(215, 77, 26);">
-            Today, you have created or been assigned {{ todayCreatedTask }} tasks!!
-          </p>
-        }
-        @else {
-          <p style="color: rgb(178, 133, 29);">No task created or assigned today!!</p>
-        }
-      </mat-list-item>
-      <mat-divider></mat-divider>
-    </mat-list>
+          @else {
+            @if (totalTasks == 0) {
+              <p class="error-msg">No task available! Try creating a new task.</p>
+            }
+            @else {
+              <p class="warning-msg">
+                Hey
+                <strong>{{ userDetails.firstName.charAt(0).toUpperCase() + userDetails.firstName.slice(1).toLowerCase() }}</strong>,
+                you haven't completed any tasks on <strong>{{ cust_date }}</strong>.
+                Let's try to finish at least one task!
+              </p>
+            }
+          }
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          @if (todayCreatedTask > 0) {
+            <p class="assigned-msg">
+              On <strong>{{ cust_date }}</strong>, you created or were assigned
+              <strong>{{ todayCreatedTask }}</strong> task(s).
+            </p>
+          }
+          @else {
+            <p class="no-creation-msg">
+              No task created or assigned on <strong>{{ cust_date }}</strong>.
+            </p>
+          }
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card>
   </div>
 </div>
