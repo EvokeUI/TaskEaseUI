@@ -61,4 +61,12 @@ export class UserService {
   getUserById(id: string): Observable<User>{
    return this.http.get<User>(this.userURL + '/' + id);
   }
+
+  updateUserName(id:string,data:any):Observable<User>{
+      return this.http.patch<User>(`${this.userURL}/${id}`,data);
+  }
+
+  updateEmail(id:string,data:any):Observable<User>{
+    return this.http.patch<User>(`${this.userURL}/${id}`,data);
+  }
 }

@@ -6,7 +6,7 @@
       <span>{{ userDetails.firstName[0] | uppercase }}</span>
     </div>
 
-    <h2 class="user-name">{{ userDetails.firstName }}</h2>
+    <h2 class="user-name">{{ userDetails.firstName }} {{ userDetails.lastName }}</h2>
     <p class="user-email">{{ userDetails.email }}</p>
 
     <!-- <p class="section-label">Role</p>
@@ -26,15 +26,14 @@
 
     <h2 class="section-title">Editable Sections</h2>
 
-    <button mat-raised-button color="primary" class="edit-btn">
+    <button mat-raised-button color="primary" class="edit-btn" (click)="openDialog(nameDialog)">
       Update Name
     </button>
 
-    <button mat-raised-button color="primary" class="edit-btn">
+    <button mat-raised-button color="primary" class="edit-btn" (click)="openDialog(emailDialog)" >
       Update Email
     </button>
 
-    <!-- Security Section -->
     <h2 class="section-title">Security</h2>
 
     <button mat-raised-button color="primary" class="security-btn">
@@ -44,3 +43,53 @@
   </div>
 
 </div>
+
+
+
+
+<ng-template #nameDialog>
+  <div class="dialog-header">
+    <span>Edit Name</span>
+    <button class="close-btn" mat-dialog-close>&times;</button>
+  </div>
+
+  <div class="dialog-body">
+    <form [formGroup]="nameForm">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="dialog-actions">
+    <button class="cancel-btn" mat-dialog-close>Cancel</button>
+    <button class="save-btn" mat-raised-button (click)="saveName()">Save</button>
+  </div>
+</ng-template>
+
+<ng-template #emailDialog>
+  <div class="dialog-header">
+    <span>Edit Name</span>
+    <button class="close-btn" mat-dialog-close>&times;</button>
+  </div>
+
+  <div class="dialog-body">
+    <form [formGroup]="emailForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="dialog-actions">
+    <button class="cancel-btn" mat-dialog-close>Cancel</button>
+    <button class="save-btn" mat-raised-button (click)="saveEmail()">Save</button>
+  </div>
+</ng-template>

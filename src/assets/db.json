@@ -2,9 +2,9 @@
   "users": [
     {
       "id": "1",
-      "firstName": "Joslina",
-      "lastName": "Inti",
-      "email": "joslina@gmail.com",
+      "firstName": "joslinaa",
+      "lastName": "intiii",
+      "email": "joslina90@gmail.com",
       "password": "1234",
       "role": "admin",
       "tasks": [
@@ -111,7 +111,7 @@
       "email": "srikanth@gmail.com",
       "password": "987654",
       "confirmPassword": "987654",
-      "role":""
+      "role": ""
     },
     {
       "id": "abe0",

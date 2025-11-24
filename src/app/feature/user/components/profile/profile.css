@@ -92,3 +92,76 @@
   background: linear-gradient(90deg, #3f51b5, #364fc7);
   transition: 0.3s ease;
 }
+/* Dialog container rounded */
+.custom-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+/* Header */
+.dialog-header {
+  background: #1976d2;
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.close-btn:hover {
+  color: #bbdefb;
+}
+
+/* Body */
+.dialog-body {
+  padding: 24px 26px;
+  background: #f5faff;
+}
+
+.dialog-body .mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+/* Footer */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px 24px;
+  background: #e3f2fd;
+}
+
+.cancel-btn {
+  margin-right: 10px;
+  border: 1px solid #1976d2;
+  color: #1976d2;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.cancel-btn:hover {
+  background: #e3f2fd;
+}
+
+.save-btn {
+  background: #1976d2 !important;
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: 8px;
+}
+
+.save-btn:hover {
+  background: #125a9c !important;
+}
+
