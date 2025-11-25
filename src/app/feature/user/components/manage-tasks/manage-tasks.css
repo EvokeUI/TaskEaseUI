@@ -100,7 +100,7 @@ a:hover mat-icon {
   text-align: center;
 }
 
-.status-badge.pending {
+.status-badge.new {
   background: #ffecb3;
   color: #ff9800;
 }
