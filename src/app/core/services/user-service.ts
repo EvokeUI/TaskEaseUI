@@ -84,5 +84,7 @@ export class UserService {
   updateEmail(id:string,data:any):Observable<User>{
     return this.http.patch<User>(`${this.userURL}/${id}`,data);
   }
-  
+  changePassword(id: string, data: any): Observable<User> {
+    return this.http.patch<User>(`${this.userURL}/${id}`, { password: data.NewPassword });
+  }
 }

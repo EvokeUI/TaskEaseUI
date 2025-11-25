@@ -36,7 +36,7 @@
 
     <h2 class="section-title">Security</h2>
 
-    <button mat-raised-button color="primary" class="security-btn">
+    <button mat-raised-button color="primary" class="security-btn" (click)="openDialog(passwordDialog)">
       Change Password
     </button>
 
@@ -92,4 +92,72 @@
     <button class="cancel-btn" mat-dialog-close (click)="cancel()">Cancel</button>
     <button class="save-btn" mat-raised-button (click)="saveEmail()">Save</button>
   </div>
+</ng-template>
+
+<ng-template #passwordDialog>
+  <div class="dialog-header">
+    <span>Change Password</span>
+    <button class="close-btn" mat-dialog-close>&times;</button>
+  </div>
+
+  <mat-dialog-content class="dialog-body">
+    <form [formGroup]="passwordForm">
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Old Password</mat-label>
+        <input 
+          matInput 
+          [type]="hideOld ? 'password' : 'text'" 
+          formControlName="OldPassword"
+        >
+
+        <button mat-icon-button matSuffix (click)="hideOld = !hideOld" tabindex="-1">
+          <mat-icon>{{ hideOld ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>New Password</mat-label>
+        <input 
+          matInput 
+          [type]="hideNew ? 'password' : 'text'" 
+          formControlName="NewPassword"
+        >
+
+        <button mat-icon-button matSuffix (click)="hideNew = !hideNew" tabindex="-1">
+          <mat-icon>{{ hideNew ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Confirm Password -->
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Confirm Password</mat-label>
+        <input 
+          matInput 
+          [type]="hideConfirm ? 'password' : 'text'" 
+          formControlName="ConfirmPassword"
+        >
+
+        <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" tabindex="-1">
+          <mat-icon>{{ hideConfirm ? 'visibility' : 'visibility_off' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close class="cancel-btn" (click)="cancel()">Cancel</button>
+
+    <button 
+      class="save-btn"
+      mat-raised-button 
+      color="primary" 
+      (click)="savePassword()"
+      [disabled]="passwordForm.invalid"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+
 </ng-template>
