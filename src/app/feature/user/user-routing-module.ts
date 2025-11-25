@@ -6,6 +6,7 @@ import { Profile } from './components/profile/profile';
 import { ManageTasks } from './components/manage-tasks/manage-tasks';
 import { CreateTasks } from './components/create-tasks/create-tasks';
 import { TaskList } from './components/task-list/task-list';
+import { EditTask } from './components/edit-task/edit-task';
 
 const routes: Routes = [
   {
@@ -19,14 +20,18 @@ const routes: Routes = [
         path: 'profile', component: Profile
       },
       {
-        path: 'manage-task', component: ManageTasks
+        path: 'manage-task', component: ManageTasks, children: [
+          {
+            path: 'edit/:taskId', component: EditTask
+          }
+        ]
       },
       {
         path: 'create-task', component: CreateTasks
       },
       {
         path: 'task-list', component: TaskList
-      }
+      },
     ]
   }
 ];

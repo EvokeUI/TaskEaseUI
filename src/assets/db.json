@@ -4,7 +4,7 @@
       "id": "1",
       "firstName": "Joslina",
       "lastName": "Inti",
-      "email": "joslina123@gmail.com",
+      "email": "joslina@gmail.com",
       "password": "1234",
       "role": "admin",
       "tasks": [
@@ -21,16 +21,16 @@
           "title": "Team meeting",
           "description": "Conduct weekly team status meeting",
           "createdDate": "2025-11-12",
-          "completionDate": "",
-          "status": "pending"
+          "completionDate": "2025-11-25",
+          "status": "completed"
         }
       ]
     },
     {
       "id": "2",
-      "firstName": "vivek",
-      "lastName": "verma",
-      "email": "vivek@gmail.com",
+      "firstName": "Vivek",
+      "lastName": "Verma",
+      "email": "vermavivek0402@gmail.com",
       "password": "123445",
       "role": "admin",
       "tasks": [
@@ -75,93 +75,7 @@
       "email": "pabbateja70@gmail.com",
       "password": "zxcvbnm",
       "confirmPassword": "zxcvbnm",
-      "role": "user",
-      "tasks": [
-        {
-          "id": "1763979897865",
-          "title": "ui side bar",
-          "description": "need to add links to sidebar component",
-          "acceptanceCriteria": "coding standards,unit testing,responsiveness",
-          "storyPoints": 3,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": "saipabba",
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-26"
-        },
-        {
-          "id": "1763980906862",
-          "title": "hjbjb",
-          "description": "jhbiu",
-          "acceptanceCriteria": "hbiuhni",
-          "storyPoints": 2,
-          "priority": "Low",
-          "status": "New",
-          "assignedTo": "saipabba",
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-24"
-        },
-        {
-          "id": "1763981268143",
-          "title": "ajdhd",
-          "description": "cuinceiuejnm",
-          "acceptanceCriteria": "akhno",
-          "storyPoints": 1,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": "saipabba",
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-23"
-        },
-        {
-          "id": "1763981361706",
-          "title": "asdf",
-          "description": "zxcv",
-          "acceptanceCriteria": "qwer",
-          "storyPoints": 1,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": "saipabba",
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-24"
-        },
-        {
-          "id": "1763981719692",
-          "title": "shbiu",
-          "description": "ibiuinjk",
-          "acceptanceCriteria": "hj hyubyu",
-          "storyPoints": 5,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": null,
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-27"
-        },
-        {
-          "id": "1763981812334",
-          "title": "wededx",
-          "description": "wcew",
-          "acceptanceCriteria": "ecfrtvgtg",
-          "storyPoints": 3,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": null,
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-26"
-        },
-        {
-          "id": "1763982149658",
-          "title": "jbu",
-          "description": "buihn",
-          "acceptanceCriteria": "iubuy",
-          "storyPoints": 5,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": "saipabba",
-          "createdDate": "2025-11-24",
-          "dueDate": "2025-11-27"
-        }
-      ]
+      "role": "user"
     },
     {
       "id": "a5a7",
