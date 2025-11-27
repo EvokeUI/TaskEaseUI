@@ -1,54 +1,46 @@
 <!-- HEADER BAR -->
 <div class="task-list-header">
   <h2 class="task-list-title">Task List</h2>
-
-  <form [formGroup]="searchForm" class="search-formm">
-    <mat-form-field appearance="outline" floatLabel="auto">
-      <mat-label>Search Tasks</mat-label>
-      <input matInput placeholder="Search..." formControlName="searchText">
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </form>
 </div>
 
 <!-- TASK CARDS -->
 <div class="task-list-container">
-  <mat-card *ngFor="let task of filteredTasks" class="task-card">
-    <mat-card-header>
-      <mat-card-title class="task-title">
-        {{ task.title }}
-      </mat-card-title>
-      <mat-card-subtitle>
-        Created On: {{ task.createdDate | date:'mediumDate' }}
-      </mat-card-subtitle>
-      <mat-icon mat-card-avatar
-        [ngClass]="{
-          'status-new': task.status === 'New',
-          'status-progress': task.status === 'In Progress',
-          'status-review': task.status === 'In Review',
-          'status-done': task.status === 'Done'
-        }">
-        {{ task.status === 'Done' ? 'check_circle' : 
-           task.status === 'In Progress' ? 'autorenew' :
-           task.status === 'In Review' ? 'visibility' :
-           'schedule' }}
-      </mat-icon>
-    </mat-card-header>
+  @for (task of tasks; track task.id) {
+    <mat-card class="task-card">
 
-    <mat-divider></mat-divider>
+      <mat-card-header>
+        <mat-card-title>{{ task.title }}</mat-card-title>
+        <mat-card-subtitle>
+          Created On: {{ task.createdDate | date:'mediumDate' }}
+        </mat-card-subtitle>
 
-    <mat-card-content class="task-content">
-      <p class="task-field"><strong>Description:</strong><br>{{ task.description }}</p>
-      <p class="task-field"><strong>Acceptance Criteria:</strong><br>{{ task.acceptanceCriteria }}</p>
-      <p class="task-field"><strong>Priority:</strong>
-        <span class="chip priority-chip {{ task.priority | lowercase }}">{{ task.priority }}</span>
-      </p>
-      <p class="task-field"><strong>Story Points:</strong> {{ task.storyPoints }}</p>
-      <p class="task-field"><strong>Assigned To:</strong> {{ task.assignedTo || 'Unassigned' }}</p>
-      <p class="task-field"><strong>Status:</strong>
-        <span class="chip status-chip {{ task.status | lowercase }}">{{ task.status }}</span>
-      </p>
-      <p class="task-field"><strong>Due Date:</strong> {{ task.dueDate | date:'mediumDate' }}</p>
-    </mat-card-content>
-  </mat-card>
+        <mat-icon
+          mat-card-avatar
+          [ngClass]="{
+            'status-new': task.status === 'New',
+            'status-progress': task.status === 'In Progress',
+            'status-review': task.status === 'In Review',
+            'status-done': task.status === 'Done'
+          }">
+          {{ task.status === 'Done' ? 'check_circle' :
+             task.status === 'In Progress' ? 'autorenew' :
+             task.status === 'In Review' ? 'visibility' :
+             'schedule' }}
+        </mat-icon>
+      </mat-card-header>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        <p><strong>Description:</strong><br>{{ task.description }}</p>
+        <p><strong>Acceptance Criteria:</strong><br>{{ task.acceptanceCriteria }}</p>
+        <p><strong>Priority:</strong> <span class="chip {{task.priority | lowercase}}">{{ task.priority }}</span></p>
+        <p><strong>Story Points:</strong> {{ task.storyPoints }}</p>
+        <p><strong>Assigned To:</strong> {{ task.assignedTo || 'Unassigned' }}</p>
+        <p><strong>Status:</strong> <span class="chip {{task.status | lowercase}}">{{ task.status }}</span></p>
+        <p><strong>Due Date:</strong> {{ task.dueDate | date:'mediumDate' }}</p>
+      </mat-card-content>
+
+    </mat-card>
+  }
 </div>
