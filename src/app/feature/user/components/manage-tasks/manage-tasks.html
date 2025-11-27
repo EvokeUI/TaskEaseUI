@@ -6,15 +6,18 @@
 
       <div class="search-box">
         <mat-icon class="search-icon">search</mat-icon>
-        <input matInput placeholder="Search task..." class="search-input" />
+        <input matInput 
+               placeholder="Search task by title..." 
+               class="search-input" 
+               [(ngModel)]="taskName" 
+               (input)="searchTask()">
       </div>
-
 
       <p class="t_task">Total Task: {{ allTasks.length }}</p>
     </div>
   </mat-card>
 
-  <table mat-table [dataSource]="allTasks" class="mat-elevation-z8 task-table">
+  <table mat-table [dataSource]="filteredTasks" class="mat-elevation-z8 task-table">
 
     <ng-container matColumnDef="sno">
       <th mat-header-cell *matHeaderCellDef>S.No</th>
@@ -38,22 +41,21 @@
           {{ task.status }}
         </span>
       </td>
-
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let task" class="action-icons">
-
+        
         <a [routerLink]="['edit', task.id]" class="edit-btn">
           <mat-icon>edit</mat-icon>
         </a>
 
         <span class="line"></span>
 
-        <a [routerLink]="['delete', task.id]" class="delete-btn">
+        <button class="delete-btn" (click)="openDialog(task.id)">
           <mat-icon>delete</mat-icon>
-        </a>
+        </button>
 
       </td>
     </ng-container>
@@ -61,7 +63,13 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
 </mat-card>
-
+@if(isOpened){
+<app-confirm-dialog
+[message]="'Are you sure you want to delete this task?'"
+(confirm)="handleConfirmation($event)"
+>
+</app-confirm-dialog>
+}
 <router-outlet></router-outlet>
+

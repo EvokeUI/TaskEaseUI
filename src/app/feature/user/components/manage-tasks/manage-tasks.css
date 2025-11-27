@@ -66,6 +66,9 @@ table td {
 
 .delete-btn {
   color: rgb(165, 17, 17);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .line::before {
@@ -84,7 +87,7 @@ a {
   text-decoration: none;
 }
 
-a:hover mat-icon {
+a:hover mat-icon, button:hover mat-icon {
   transform: scale(1.15);
   transition: 0.2s ease;
 }
