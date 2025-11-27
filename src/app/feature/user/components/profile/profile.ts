@@ -7,10 +7,11 @@ import { MatFormField, MatInputModule, MatLabel } from '@angular/material/input'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog, MatDialogActions, MatDialogContent } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-profile',
-  imports: [UpperCasePipe,MatFormFieldModule,MatLabel,MatInputModule,ReactiveFormsModule,MatDialogActions,MatDialogContent],
+  imports: [UpperCasePipe,MatFormFieldModule,MatLabel,MatInputModule,ReactiveFormsModule,MatDialogActions,MatDialogContent,MatIconModule],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
@@ -28,6 +29,10 @@ export class Profile {
     userId:any;
     nameForm:any;
     emailForm:any;
+    passwordForm:any;
+    hideOld = true;
+    hideNew = true;
+    hideConfirm = true;
     
     ngOnInit(): void {
 
@@ -38,6 +43,12 @@ export class Profile {
       this.emailForm= this.fb.group({
         email:['',[Validators.required,Validators.email]]
       });
+
+    this.passwordForm = this.fb.group({
+    OldPassword: ['', Validators.required],
+    NewPassword: ['', Validators.required],
+    ConfirmPassword: ['', Validators.required]
+  });
  
       this.route.parent?.params.subscribe((res) =>{
       this.userId = res['id'];
@@ -79,7 +90,20 @@ export class Profile {
       this.dialog.closeAll();
     })
   }
+savePassword() {
+    let form = this.passwordForm.value;
 
+    if (form.NewPassword !== form.ConfirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    this.userService.changePassword(this.userId, form)
+      .subscribe(() => {
+        this.passwordForm.reset();
+        this.dialog.closeAll();
+      });
+  }
 
   cancel() {
     this.dialog.closeAll();

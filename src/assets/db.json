@@ -5,7 +5,7 @@
       "firstName": "Joslina",
       "lastName": "Inti",
       "email": "joslina123@gmail.com",
-      "password": "1234",
+      "password": "Joslina123",
       "role": "admin",
       "tasks": [
         {
@@ -23,6 +23,18 @@
           "createdDate": "2025-11-12",
           "completionDate": "",
           "status": "pending"
+        },
+        {
+          "id": "1764053310942",
+          "title": "need to work on update password",
+          "description": "need to work on update password",
+          "acceptanceCriteria": "need to work on update password",
+          "storyPoints": 2,
+          "priority": "High",
+          "status": "New",
+          "assignedTo": null,
+          "createdDate": "2025-11-25",
+          "dueDate": "2025-11-24"
         }
       ]
     },
@@ -30,41 +42,33 @@
       "id": "2",
       "firstName": "vivek",
       "lastName": "verma",
-      "email": "vivek@gmail.com",
+      "email": "vermavivek0402@gmail.com",
       "password": "123445",
       "role": "admin",
       "tasks": [
         {
-          "id": "1",
-          "title": "Fix dashboard UI",
-          "description": "Improve card alignment and spacing",
-          "createdDate": "2025-11-14",
-          "completionDate": "",
-          "status": "pending"
+          "id": "1764225976302",
+          "title": "New Dummy Task",
+          "description": "Need to complete the given task ASAP",
+          "acceptanceCriteria": "Just complete it...",
+          "storyPoints": 2,
+          "priority": "High",
+          "status": "New",
+          "assignedTo": null,
+          "createdDate": "2025-11-27",
+          "dueDate": "2025-11-27"
         },
         {
-          "id": "2",
-          "title": "Code review",
-          "description": "Review authentication module code",
-          "createdDate": "2025-11-13",
-          "completionDate": "2025-11-17",
-          "status": "in-progress"
-        },
-        {
-          "id": "3",
-          "title": "Code review",
-          "description": "Review authentication module code",
-          "createdDate": "2025-11-13",
-          "completionDate": "2025-11-17",
-          "status": "completed"
-        },
-        {
-          "id": "4",
-          "title": "Code review",
-          "description": "Review authentication module code",
-          "createdDate": "2025-11-17",
-          "completionDate": "",
-          "status": "pending"
+          "id": "1764226722924",
+          "title": "Code Review",
+          "description": "Need to review the code before pushing to the repo...",
+          "acceptanceCriteria": "Do it ASAP...",
+          "storyPoints": 2,
+          "priority": "High",
+          "status": "New",
+          "assignedTo": null,
+          "createdDate": "2025-11-27",
+          "dueDate": "2025-11-27"
         }
       ]
     },
@@ -87,7 +91,7 @@
           "status": "New",
           "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-26"
+          "completionDate": "2025-11-26"
         },
         {
           "id": "1763980906862",
@@ -99,7 +103,7 @@
           "status": "New",
           "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-24"
+          "completionDate": "2025-11-24"
         },
         {
           "id": "1763981268143",
@@ -111,7 +115,7 @@
           "status": "New",
           "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-23"
+          "completionDate": "2025-11-23"
         },
         {
           "id": "1763981361706",
@@ -123,7 +127,7 @@
           "status": "New",
           "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-24"
+          "completionDate": "2025-11-24"
         },
         {
           "id": "1763981719692",
@@ -135,7 +139,7 @@
           "status": "New",
           "assignedTo": null,
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-27"
+          "completionDate": "2025-11-27"
         },
         {
           "id": "1763981812334",
@@ -147,7 +151,7 @@
           "status": "New",
           "assignedTo": null,
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-26"
+          "completionDate": "2025-11-26"
         },
         {
           "id": "1763982149658",
@@ -156,10 +160,10 @@
           "acceptanceCriteria": "iubuy",
           "storyPoints": 5,
           "priority": "Medium",
-          "status": "New",
+          "status": "completed",
           "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
-          "dueDate": "2025-11-27"
+          "completionDate": "2025-11-25"
         }
       ]
     },

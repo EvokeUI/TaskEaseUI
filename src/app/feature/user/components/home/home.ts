@@ -42,7 +42,7 @@ export class Home implements OnInit{
       this.userDetails = res;
       console.log(this.userDetails);
 
-      this.pendingTaskCount = this.userDetails.tasks.filter(t => t.status === 'pending').length;
+      this.pendingTaskCount = this.userDetails.tasks.filter(t => t.status === 'new').length;
       this.progressTaskCount = this.userDetails.tasks.filter(t => t.status === 'in-progress').length
       this.completedTaskCount = this.userDetails.tasks.filter(t => t.status === 'completed').length
       this.totalTasks = this.userDetails.tasks.length;

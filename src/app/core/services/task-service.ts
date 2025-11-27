@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Task, User } from '../../feature/auth/modals/user.modal';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,18 @@ export class TaskService {
   getAllUers(): Observable<User[]>{
     return this.http.get<User[]>(this.endPoint);
   }
+
+deleteTask(userId: string, taskId: string) {
+  return this.http.get<any>(`${this.endPoint}/${userId}`).pipe(
+    
+    switchMap(user => {
+      user.tasks = user.tasks.filter((task: any) => task.id !== taskId);
+
+      return this.http.put(`${this.endPoint}/${userId}`, user);
+    })
+  );
+}
+
 
 
 }
