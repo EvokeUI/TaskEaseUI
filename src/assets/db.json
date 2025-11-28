@@ -9,20 +9,28 @@
       "role": "admin",
       "tasks": [
         {
-          "id": "",
+          "id": "1764234764525",
           "title": "Review project plan",
           "description": "Go through the Phase-1 project roadmap",
+          "acceptanceCriteria": "sdfghfds",
+          "storyPoints": 3,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "JoslinaInti",
           "createdDate": "2025-11-10",
-          "completionDate": "2025-11-17",
-          "status": "in-progress"
+          "completionDate": "2025-11-14"
         },
         {
-          "id": "",
+          "id": "1764234764530",
           "title": "Team meeting",
           "description": "Conduct weekly team status meeting",
+          "acceptanceCriteria": "sdfghfds",
+          "storyPoints": 3,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "JoslinaInti",
           "createdDate": "2025-11-12",
-          "completionDate": "",
-          "status": "pending"
+          "completionDate": "2025-11-18"
         },
         {
           "id": "1764053310942",
@@ -32,9 +40,9 @@
           "storyPoints": 2,
           "priority": "High",
           "status": "New",
-          "assignedTo": null,
+          "assignedTo": "JoslinaInti",
           "createdDate": "2025-11-25",
-          "dueDate": "2025-11-24"
+          "completionDate": "2025-11-24"
         },
         {
           "id": "1764234764532",
@@ -44,9 +52,9 @@
           "storyPoints": 3,
           "priority": "Medium",
           "status": "New",
-          "assignedTo": null,
+          "assignedTo": "JoslinaInti",
           "createdDate": "2025-11-27",
-          "dueDate": "2025-11-28"
+          "completionDate": "2025-11-24"
         }
       ]
     },
@@ -66,9 +74,9 @@
           "storyPoints": 2,
           "priority": "High",
           "status": "New",
-          "assignedTo": null,
+          "assignedTo": "vivekverma",
           "createdDate": "2025-11-27",
-          "dueDate": "2025-11-27"
+          "completionDate": "2025-11-27"
         },
         {
           "id": "1764226722924",
@@ -78,9 +86,9 @@
           "storyPoints": 2,
           "priority": "High",
           "status": "New",
-          "assignedTo": null,
+          "assignedTo": "vivekverma",
           "createdDate": "2025-11-27",
-          "dueDate": "2025-11-27"
+          "completionDate": "2025-11-27"
         }
       ]
     },
@@ -149,21 +157,9 @@
           "storyPoints": 5,
           "priority": "Medium",
           "status": "New",
-          "assignedTo": null,
+          "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
           "completionDate": "2025-11-27"
-        },
-        {
-          "id": "1763981812334",
-          "title": "wededx",
-          "description": "wcew",
-          "acceptanceCriteria": "ecfrtvgtg",
-          "storyPoints": 3,
-          "priority": "Medium",
-          "status": "New",
-          "assignedTo": null,
-          "createdDate": "2025-11-24",
-          "completionDate": "2025-11-26"
         },
         {
           "id": "1763982149658",
@@ -176,6 +172,90 @@
           "assignedTo": "saipabba",
           "createdDate": "2025-11-24",
           "completionDate": "2025-11-25"
+        },
+        {
+          "id": "1764070210015",
+          "title": "asd",
+          "description": "zxc",
+          "acceptanceCriteria": "qwer",
+          "storyPoints": 3,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-25",
+          "completionDate": "2025-11-27"
+        },
+        {
+          "id": "1764234995027",
+          "title": "sdf",
+          "description": "hbmjk",
+          "acceptanceCriteria": "kb",
+          "storyPoints": 2,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-27",
+          "completionDate": "2025-11-27"
+        },
+        {
+          "id": "1764318189698",
+          "title": "asd",
+          "description": "zxcv",
+          "acceptanceCriteria": "asdfg",
+          "storyPoints": 2,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-28",
+          "completionDate": "2025-11-28"
+        },
+        {
+          "id": "1764319951975",
+          "title": "zxc",
+          "description": "zxc",
+          "acceptanceCriteria": "zxc",
+          "storyPoints": 1,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-28",
+          "completionDate": "2025-11-28"
+        },
+        {
+          "id": "1764320553159",
+          "title": "cvb",
+          "description": "cvb",
+          "acceptanceCriteria": "cvb",
+          "storyPoints": 4,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-28",
+          "completionDate": "2025-11-29"
+        },
+        {
+          "id": "1764320643254",
+          "title": "dfg",
+          "description": "dfg",
+          "acceptanceCriteria": "dfg",
+          "storyPoints": 1,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-28",
+          "completionDate": "2025-11-28"
+        },
+        {
+          "id": "1764321486936",
+          "title": "jkl",
+          "description": "jkl",
+          "acceptanceCriteria": "jkl",
+          "storyPoints": 2,
+          "priority": "Medium",
+          "status": "New",
+          "assignedTo": "saipabba",
+          "createdDate": "2025-11-28",
+          "completionDate": "2025-11-28"
         }
       ]
     },

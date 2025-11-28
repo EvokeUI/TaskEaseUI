@@ -38,12 +38,6 @@ export class CreateTasks {
   // Example options for dropdowns:
   priorities = ['Low', 'Medium', 'High', 'Critical'];
   statuses = ['New', 'In Progress', 'In Review', 'Done'];
-  // For assignedTo, you might load from your user list:
-  users = [
-    { id: 1, name: 'Alice' },
-    { id: 2, name: 'Bob' },
-    // ...
-  ];
   userId: any;
   fullName!: string;
   today: Date = new Date();
@@ -71,7 +65,7 @@ export class CreateTasks {
       priority: ['Medium', Validators.required],
       status: ['New'],
       assignedTo: [this.fullName],
-      dueDate: [null, Validators.required]
+      completionDate: [null, Validators.required]
     });
   }
 
@@ -89,10 +83,10 @@ export class CreateTasks {
       acceptanceCriteria: formValue.acceptanceCriteria,
       storyPoints: formValue.storyPoints,
       priority: formValue.priority,
-      status: formValue.status,
-      assignedTo: formValue.assignedTo,
+      status: formValue.status || "New",
+      assignedTo: formValue.assignedTo || this.fullName,
       createdDate: new Date().toISOString().slice(0, 10),
-      dueDate: formValue.dueDate.toISOString().slice(0, 10)
+      completionDate: formValue.completionDate.toISOString().slice(0, 10)
     };
     console.log(newTask);
     this.userService.addTaskToUser(this.userId, newTask).subscribe(() => {
@@ -103,10 +97,10 @@ export class CreateTasks {
         verticalPosition: this.verticalPosition,
         duration: this.durationInSeconds * 1000,
       });
-      // setTimeout(()=>{
-      //   this.router.navigate(['/user/dashboard/${this.userId}']);
+      setTimeout(()=>{
+        this.router.navigate(['/user/dashboard', this.userId]);
 
-      //   },1000);
+        },1000);
     },
       (err: Error) => {
         this._snackBar.open('something went wrong,please try again later', 'Done', {
