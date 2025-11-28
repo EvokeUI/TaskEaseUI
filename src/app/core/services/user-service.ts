@@ -87,4 +87,11 @@ export class UserService {
   changePassword(id: string, data: any): Observable<User> {
     return this.http.patch<User>(`${this.userURL}/${id}`, { password: data.NewPassword });
   }
+  updateProfilePicture(id: string, base64Image: any): Observable<User> {
+  return this.http.patch<User>(`${this.userURL}/${id}`, {
+    profilePicture: base64Image
+  });
 }
+
+}
+ 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../../core/services/user-service';
 import { User } from '../../../auth/modals/user.modal';
-import { UpperCasePipe } from '@angular/common';
+import { CommonModule, UpperCasePipe } from '@angular/common';
 import { MatFormField, MatInputModule, MatLabel } from '@angular/material/input';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog, MatDialogActions, MatDialogContent } from '@angular/material/dialog';
@@ -11,7 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-profile',
-  imports: [UpperCasePipe,MatFormFieldModule,MatLabel,MatInputModule,ReactiveFormsModule,MatDialogActions,MatDialogContent,MatIconModule],
+  standalone: true,
+  imports: [CommonModule,UpperCasePipe,MatFormFieldModule,MatLabel,MatInputModule,ReactiveFormsModule,MatDialogActions,MatDialogContent,MatIconModule],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })
@@ -108,6 +109,24 @@ savePassword() {
   cancel() {
     this.dialog.closeAll();
   }
+  onProfilePicSelected(event: any) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const base64Img = reader.result;
+
+    this.userService.updateProfilePicture(this.userId, base64Img)
+      .subscribe(() => {
+        this.userDetails.profilePicture = base64Img as string;
+      });
+  };
+
+  reader.readAsDataURL(file);
+}
+
 }
 
 
