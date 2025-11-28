@@ -241,6 +241,52 @@
       "password": "lkjhgf",
       "confirmPassword": "lkjhgf",
       "role": ""
+    },
+    {
+      "id": "f35c",
+      "firstName": "Harsha",
+      "lastName": "Vardhini",
+      "email": "agatamudi2002@gmail.com",
+      "password": "Harsha@2002",
+      "confirmPassword": "Harsha@2002",
+      "tasks": [
+        {
+          "id": "1764068728580",
+          "title": "Demo call",
+          "description": "Prepare presentation",
+          "acceptanceCriteria": "Include all new implementations",
+          "storyPoints": 1,
+          "priority": "High",
+          "status": "New",
+          "assignedTo": null,
+          "createdDate": "2025-11-25",
+          "dueDate": "2025-11-28"
+        },
+        {
+          "id": "1764070388281",
+          "title": "Need to work on CSS in tasklist",
+          "description": "fix alignment",
+          "acceptanceCriteria": "NA",
+          "storyPoints": 5,
+          "priority": "Critical",
+          "status": "New",
+          "assignedTo": null,
+          "createdDate": "2025-11-25",
+          "dueDate": "2025-12-13"
+        },
+        {
+          "id": "1764073822404",
+          "title": "Check Scenarios of replicating edited data from manage tasks",
+          "description": "edit data in task of manage task",
+          "acceptanceCriteria": "i should be updated in task list",
+          "storyPoints": 4,
+          "priority": "High",
+          "status": "New",
+          "assignedTo": null,
+          "createdDate": "2025-11-25",
+          "dueDate": "2026-01-20"
+        }
+      ]
     }
   ]
 }

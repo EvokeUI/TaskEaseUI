@@ -1,0 +1,121 @@
+
+.task-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(90deg, #2c079b, #43afee);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.task-list-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+
+.task-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.task-card {
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 4px 12px;
+  background: linear-gradient(90deg, #2c079b, #43afee);
+  color: #f8f6f6;
+}
+
+.task-title {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0px 10px 5px 20px;
+  text-transform: uppercase;
+  color: #f9f6f6;
+  margin:5px !important;
+}
+
+.task-subtitle {
+  font-size: 15px;
+  padding:5px;
+  color: #eeeaea;
+}
+
+.mat-mdc-card-subtitle{
+   padding:5px;
+   color: #f9f6f6 !important;
+}
+.task-content {
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 0px 20px 20px 20px;
+  color: #f8f6f6;
+}
+
+.task-field {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+
+.status-icon {
+  font-size: 27px !important;
+  margin:5px
+}
+
+.status-new {
+  color: #e79797;
+}
+
+.status-progress {
+  color: #ffa500;
+}
+
+.status-review {
+  color: #9c27b0;
+}
+
+.status-done {
+  color: #4caf50;
+}
+
+/* CHIP STYLING */
+.chip {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: white;
+  margin-left: 5px;
+}
+
+.chip.low {
+  background-color: #4caf50; /* Green */
+}
+.chip.medium {
+  background-color: #ff9800; /* Orange */
+}
+.chip.high {
+  background-color: #f44336; /* Red */
+}
+.chip.critical {
+  background-color: #710505; /* Dark Red */
+}
+.chip.new {
+  background-color: #e79797; /* Light Red */
+}
+.chip.progress {
+  background-color: #ffa500; /* Orange */
+}
+.chip.review {
+  background-color: #9c27b0; /* Purple */
+}
+.chip.done {
+  background-color: #4caf50; /* Green */
+}
