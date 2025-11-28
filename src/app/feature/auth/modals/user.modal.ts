@@ -13,6 +13,8 @@ export interface User {
   email: string;
   password: string;
   tasks: Task[];
+  profilePicture:string;
+  
 }
 export interface Task {
   id: string;
