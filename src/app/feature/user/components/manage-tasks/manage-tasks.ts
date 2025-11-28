@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Task, User } from '../../../auth/modals/user.modal';
 import { TaskService } from '../../../../core/services/task-service';
@@ -10,12 +10,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-manage-tasks',
-  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog],
+  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule],
   templateUrl: './manage-tasks.html',
   styleUrl: './manage-tasks.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ManageTasks implements OnInit {
@@ -29,6 +31,7 @@ export class ManageTasks implements OnInit {
   constructor(private taskService: TaskService, private route: ActivatedRoute){}
 
   displayedColumns: string[] = ['sno', 'title', 'createdDate', 'status', 'actions'];
+  status: string [] = ["New", "In-Progress", "Completed"];
 
   ngOnInit(): void {
 

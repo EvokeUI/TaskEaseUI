@@ -36,6 +36,33 @@
   font-weight: 500;
   margin-left: 15px;
 }
+.filter input{
+  margin: 0px 10px;
+  
+}
+
+.filters-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: end;
+}
+
+mat-form-field {
+  width: 250px;
+}
+
+mat-form-field .mat-form-field-flex {
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+mat-label {
+  font-weight: 600;
+  font-size: 14px;
+}
 
 .task-table {
   width: 100%;

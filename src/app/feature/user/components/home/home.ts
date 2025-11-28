@@ -60,6 +60,7 @@ export class Home implements OnInit{
     this.completedTaskCount = 0;
     return;
    }
+   
   //  const selectedDate = new Date(this.cust_date);  
   //  const today = new Date();
    //today.setDate(today);                         
