@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Task, User } from '../../../auth/modals/user.modal';
 import { TaskService } from '../../../../core/services/task-service';
@@ -11,10 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EditTaskDialog } from '../../shared/edit-task-dialog/edit-task-dialog';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-manage-tasks',
-  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule],
+  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule, MatDialogModule],
   templateUrl: './manage-tasks.html',
   styleUrl: './manage-tasks.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -27,75 +30,115 @@ export class ManageTasks implements OnInit {
   currUserId: any = '';
   taskName: string = "";
   filteredTasks: any[] = [];
-
-  constructor(private taskService: TaskService, private route: ActivatedRoute){}
+  readonly dialog = inject(MatDialog);
+  private _snackBar = inject(MatSnackBar);
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds: number = 5;
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private cd: ChangeDetectorRef) { }
 
   displayedColumns: string[] = ['sno', 'title', 'createdDate', 'status', 'actions'];
-  status: string [] = ["New", "In-Progress", "Completed"];
+  status: string[] = ["New", "In-Progress", "Completed"];
 
   ngOnInit(): void {
 
-    this.route.parent?.paramMap.subscribe((param) =>{
+    this.route.parent?.paramMap.subscribe((param) => {
       this.currUserId = param.get('id');
       console.log(this.currUserId);
     });
 
-    this.taskService.getAllUers().subscribe((res: User[]) =>{
+    this.taskService.getAllUers().subscribe((res: User[]) => {
       const currentUser = res.find(u => u.id == this.currUserId);
       this.allTasks = currentUser?.tasks || [];
       this.filteredTasks = this.allTasks;
       console.log(this.allTasks);
     });
-    
+
   }
 
 
-searchTask() {
-  //console.log("Inside search task...")
-  const search = this.taskName.toLowerCase().trim();
+  searchTask() {
+    //console.log("Inside search task...")
+    const search = this.taskName.toLowerCase().trim();
 
-  if (search === "") {
-   this.filteredTasks = this.allTasks;
-    console.log(this,this.filteredTasks);
-    return;
+    if (search === "") {
+      this.filteredTasks = this.allTasks;
+      console.log(this, this.filteredTasks);
+      return;
+    }
+
+    this.filteredTasks = this.allTasks.filter(task =>
+      task.title.toLowerCase().includes(search)
+
+    );
   }
 
-  this.filteredTasks = this.allTasks.filter(task =>
-    task.title.toLowerCase().includes(search)
-    
-  );
-}
 
+  isOpened: boolean = false;
+  currentTaskId: string = "";
 
-isOpened: boolean = false;
-currentTaskId: string = "";
-
-//responsible for opening the dialog 
-openDialog(taskId: string){
-  this.isOpened = true;
-  this.currentTaskId = taskId;
-}
-
-//perform the delete operations...
-deleteTask(taskId: string) {
-  this.isOpened = true;
-  this.taskService.deleteTask(this.currUserId, taskId).subscribe(res => {
-
-    console.log("Task deleted successfully!");
-    this.allTasks = this.allTasks.filter(task => task.id !== taskId);
-    this.filteredTasks = this.filteredTasks.filter(task => task.id !== taskId);
-    
-  });
-}
-
-// based on the dialog selection it proceeds...
-handleConfirmation(result: boolean){
-  if(result){
-    this.deleteTask(this.currentTaskId);
-    this.isOpened = false;
-  }else{
-    this.isOpened = false;
+  //responsible for opening the dialog 
+  openDialog(taskId: string) {
+    this.isOpened = true;
+    this.currentTaskId = taskId;
   }
-}
+
+  //perform the delete operations...
+  deleteTask(taskId: string) {
+    this.isOpened = true;
+    this.taskService.deleteTask(this.currUserId, taskId).subscribe(res => {
+
+      console.log("Task deleted successfully!");
+      this.allTasks = this.allTasks.filter(task => task.id !== taskId);
+      this.filteredTasks = this.filteredTasks.filter(task => task.id !== taskId);
+
+    });
+  }
+
+  // based on the dialog selection it proceeds...
+  handleConfirmation(result: boolean) {
+    if (result) {
+      this.deleteTask(this.currentTaskId);
+      this.isOpened = false;
+    } else {
+      this.isOpened = false;
+    }
+  }
+
+  openEditDialog(task: Task) {
+    const dialogRef = this.dialog.open(EditTaskDialog, {
+      width: '650px',
+      data: { ...task }   // pass row data
+    });
+
+    dialogRef.afterClosed().subscribe((updatedTask) => {
+      if (updatedTask) {
+        // update the table
+        this.taskService.updateTask(this.currUserId, updatedTask).subscribe((res) => {
+          console.log("Task updated successfully in JSON server!", res);
+          const index = this.allTasks.findIndex(t => t.id === task.id);
+          if (index !== -1) {
+            this.allTasks[index] = updatedTask;
+            this.filteredTasks = [...this.allTasks];// refresh table
+            this.cd.detectChanges();
+          }
+          this._snackBar.open('Task updated successfully', 'Done', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+            duration: this.durationInSeconds * 1000,
+          });
+        },
+      (err)=>{
+        this._snackBar.open('something went wrong,please try again later', 'Done', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+          duration: this.durationInSeconds * 1000,
+        });
+      })
+
+      }
+    });
+  }
+
 
 }

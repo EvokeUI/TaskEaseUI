@@ -26,6 +26,31 @@ deleteTask(userId: string, taskId: string) {
   );
 }
 
+updateTask(userId: string, updatedTask: any) {
+  return this.http.get<User[]>(this.endPoint).pipe(
+    map((users: User[]) => {
+      const userIndex = users.findIndex(u => u.id === userId);
+      if (userIndex === -1) throw new Error("User not found");
+
+      const tasks = users[userIndex].tasks;
+
+      const taskIndex = tasks.findIndex(t => t.id === updatedTask.id);
+      if (taskIndex === -1) throw new Error("Task not found");
+
+      tasks[taskIndex] = updatedTask; // update task
+
+      // Replace tasks on the user
+      users[userIndex].tasks = [...tasks];
+
+      return users[userIndex]; // return updated user
+    }),
+    switchMap((updatedUser: User) =>
+      this.http.put<User>(`${this.endPoint}/${updatedUser.id}`, updatedUser)
+    )
+  );
+}
+
+
 
 
 }

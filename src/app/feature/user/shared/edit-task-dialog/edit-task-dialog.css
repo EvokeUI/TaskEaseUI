@@ -1,0 +1,23 @@
+  .dialog-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+  }
+  /* .mb{
+    margin-bottom: -24px;
+  } */
+
+   .mat-mdc-dialog-container .mat-mdc-dialog-title+.mat-mdc-dialog-content {
+    padding-top: 10px;
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 450;
+    color: #005cbb;
+    text-align: center;
+}
+
+.mat-mdc-form-field-error {
+    margin-top: -24px;
+}
