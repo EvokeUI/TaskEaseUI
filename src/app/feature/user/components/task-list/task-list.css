@@ -116,6 +116,6 @@
 .chip.review {
   background-color: #9c27b0; /* Purple */
 }
-.chip.done {
+.chip.completed {
   background-color: #4caf50; /* Green */
 }
