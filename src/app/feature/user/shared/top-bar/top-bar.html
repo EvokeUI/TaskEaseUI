@@ -8,6 +8,40 @@
   <!-- Center Section: Search Bar -->
   <div class="topbar-center">
     <div class="search-box">
+  <mat-icon matPrefix class="search-icon">search</mat-icon>
+
+  <input
+    matInput
+    placeholder="Search anything..."
+    [(ngModel)]="searchQuery"
+    (input)="filterResults()"
+    class="search-input"
+  />
+
+  <button
+    *ngIf="searchQuery"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clearSearch()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+
+
+    <div *ngIf="filteredItems.length > 0" class="search-dropdown">
+    <div
+      class="search-item"
+      *ngFor="let item of filteredItems"
+      (click)="navigateTo(item)"
+    >
+      <mat-icon class="suggestion-icon">{{ item.icon }}</mat-icon>
+      <span>{{ item.label }}</span>
+    </div>
+  </div>
+</div>
+
+    <!-- <div class="search-box">
       <mat-icon matPrefix class="search-icon">search</mat-icon>
       <input
         matInput
@@ -25,10 +59,9 @@
       >
         <mat-icon>close</mat-icon>
       </button>
-    </div>
+    </div> -->
   </div>
 
-  <!-- Right Section: Profile Menu -->
   <div class="topbar-right">
     <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Account">
       <mat-icon class="circleIcon">account_circle</mat-icon>
