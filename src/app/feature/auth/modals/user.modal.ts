@@ -13,6 +13,8 @@ export interface User {
   email: string;
   password: string;
   tasks: Task[];
+  profilePicture:string;
+  
 }
 export interface Task {
   id: string;
@@ -23,7 +25,7 @@ export interface Task {
   priority: string;
   status: string;
   assignedTo: string;
-  dueDate: string;
+  // dueDate: string;
   completionDate?: string;  
   createdDate: string;
 }

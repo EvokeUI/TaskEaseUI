@@ -13,9 +13,27 @@
                (input)="searchTask()">
       </div>
 
-      <p class="t_task">Total Task: {{ allTasks.length }}</p>
+      <p class="t_task">Total Task: {{ allTasks.length || null }}</p>
     </div>
   </mat-card>
+
+  <div class="filters-wrapper">
+    <mat-form-field>
+      <mat-label>Filter by Date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Filter by Status</mat-label>
+      <mat-select>
+        @for (st of status; track st) {
+          <mat-option [value]="st">{{st}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
 
   <table mat-table [dataSource]="filteredTasks" class="mat-elevation-z8 task-table">
 

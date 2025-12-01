@@ -1,25 +1,41 @@
 <div class="profile-container">
 
   <!-- Left Section – User Info -->
-  <div class="profile-card">
-    <div class="avatar">
-      <span>{{ userDetails.firstName[0] | uppercase }}</span>
-    </div>
+<div class="profile-card">
 
-    <h2 class="user-name">{{ userDetails.firstName }} {{ userDetails.lastName }}</h2>
-    <p class="user-email">{{ userDetails.email }}</p>
-
-    <!-- <p class="section-label">Role</p>
-    <p class="section-content">{{ userDetails.role }}</p> -->
-
-    <!-- <p class="join-date">
-      Joined on {{ user?.createdAt | date:'longDate' }}
-    </p> -->
-
-    <button mat-stroked-button color="primary" class="profile-pic-btn">
-      Change Profile Picture
-    </button>
+  <div class="avatar" *ngIf="!userDetails.profilePicture">
+    <span>{{ userDetails.firstName[0] | uppercase }}</span>
   </div>
+
+  <img 
+    *ngIf="userDetails.profilePicture" 
+    [src]="userDetails.profilePicture" 
+    class="profile-img"
+    alt="Profile Picture"
+  />
+
+  <h2 class="user-name">{{ userDetails.firstName }} {{ userDetails.lastName }}</h2>
+  <p class="user-email">{{ userDetails.email }}</p>
+
+  <button 
+    mat-stroked-button 
+    color="primary" 
+    class="profile-pic-btn"
+    (click)="fileInput.click()"
+  >
+    Change Profile Picture
+  </button>
+
+  <input 
+    type="file" 
+    #fileInput 
+    accept="image/*" 
+    hidden 
+    (change)="onProfilePicSelected($event)"
+  />
+
+</div>
+
 
   <!-- Right Section – Editable Sections -->
   <div class="edit-sections">

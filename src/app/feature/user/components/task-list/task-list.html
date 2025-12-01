@@ -44,7 +44,7 @@
         <p><strong>Story Points:</strong> {{ task.storyPoints }}</p>
         <p><strong>Assigned To:</strong> {{ task.assignedTo || 'Unassigned' }}</p>
         <p><strong>Status:</strong> <span class="chip {{task.status | lowercase}}">{{ task.status }}</span></p>
-        <p><strong>Due Date:</strong> {{ task.dueDate | date:'mediumDate' }}</p>
+        <p><strong>Due Date:</strong> {{ task.completionDate | date:'mediumDate' }}</p>
       </mat-card-content>
 
     </mat-card>
