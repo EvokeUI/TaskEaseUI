@@ -24,7 +24,16 @@ export class TopBar {
   searchQuery:string='';
   userDetails!: User;
   userId: any;
- 
+ searchItems = [
+  { label: "Profile", keyword: ["profile"], icon: "person", route: "/user/dashboard/:id/profile" },
+  { label: "Dashboard", keyword: ["dashboard","home"], icon: "dashboard", route: "/user/dashboard/:id" },
+  { label: "ManageTask", keyword: ["tasks","managetasks"], icon: "check_circle", route: "/user/dashboard/:id/manage-task" },
+  { label: "TaskList", keyword: ["tasklist"], icon: "check_circle", route: "/user/dashboard/:id/task-list" },
+  { label: "CreateTask", keyword: ["creatask","create"], icon: "check_circle", route: "/user/dashboard/:id/create-task" },
+  { label: "Settings", keyword: ["settings"], icon: "settings", route: "/user/dashboard/:id/profile" }
+  ];
+
+  filteredItems: any[] = [];
  
     ngOnInit(): void {
       this.route.params.subscribe((res) =>{
@@ -39,20 +48,44 @@ export class TopBar {
   });
 }
  
-  onSearch(): void {
-    if (this.searchQuery.trim()) {
-      console.log('Searching for:', this.searchQuery);
-    }
+
+filterResults() {
+  const query = this.searchQuery.toLowerCase();
+
+  if (!query.trim()) {
+    this.filteredItems = [];
+    return;
   }
- 
+
+  this.filteredItems = this.searchItems.filter(item =>
+    item.keyword.some(keyword => keyword.toLowerCase().includes(query))
+  );
+}
+
+goTo(route: string) {
+  const finalRoute = route.replace(":id", this.userDetails.id);
+  this.router.navigate([finalRoute]);
+
+  this.filteredItems = [];
+  this.searchQuery = "";
+}
   clearSearch(): void {
     this.searchQuery = '';
+    this.filteredItems = [];
   }
  
-  goProfileSettings(id:any){
-    this.router.navigate(['user/dashboard/' + id + "/profile"]);
-  }
- 
+
+
+  goProfileSettings(id: any) {
+  this.router.navigate([`user/dashboard/${id}/profile`]);
+}
+
+ navigateTo(item: any) {
+  const route = item.route.replace(":id", this.userId);
+  this.router.navigate([route]);
+
+  this.filteredItems = [];
+}
   logout(): void {
     localStorage.clear();
     this.router.navigate(['/taskease/login']);
