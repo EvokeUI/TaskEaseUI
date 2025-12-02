@@ -12,10 +12,11 @@ import { FormsModule } from '@angular/forms';
 import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FilterTaskPipe } from '../../shared/pipes/filter-task-pipe';
+import { FilterByDatePipe } from '../../shared/pipes/filter-by-date-pipe';
 
 @Component({
   selector: 'app-manage-tasks',
-  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule, FilterTaskPipe],
+  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule, FilterTaskPipe, FilterByDatePipe],
   templateUrl: './manage-tasks.html',
   styleUrl: './manage-tasks.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,6 +30,7 @@ export class ManageTasks implements OnInit {
   taskName: string = "";
   filteredTasks: any[] = [];
   selectedStatus: string = '';
+  selectedDate: string = "";
 
   durationInSeconds: number = 5;
   constructor(private taskService: TaskService, private route: ActivatedRoute, private cd: ChangeDetectorRef) { }
