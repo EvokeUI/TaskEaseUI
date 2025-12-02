@@ -11,10 +11,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { FilterTaskPipe } from '../../shared/pipes/filter-task-pipe';
 
 @Component({
   selector: 'app-manage-tasks',
-  imports: [MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule, RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule],
+  imports: [
+    MatTableModule, CommonModule, RouterLink, MatCardModule, MatInputModule, MatDatepickerModule,
+    RouterOutlet, MatIconModule, FormsModule, ConfirmDialog, MatSelectModule,
+    FormsModule,
+    FilterTaskPipe
+],
   templateUrl: './manage-tasks.html',
   styleUrl: './manage-tasks.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -32,6 +38,7 @@ export class ManageTasks implements OnInit {
 
   displayedColumns: string[] = ['sno', 'title', 'createdDate', 'status', 'actions'];
   status: string [] = ["New", "In-Progress", "Completed"];
+  selectedStatus: string = "";
 
   ngOnInit(): void {
 
@@ -97,5 +104,14 @@ handleConfirmation(result: boolean){
     this.isOpened = false;
   }
 }
+
+ngOnChanges() {
+  //this.applyTaskFilter();  
+}
+
+// applyTaskFilter() {
+//   this.filteredTasks = this.filterTasK.transform(this.allTasks, this.selectedStatus);
+// }
+
 
 }
