@@ -42,7 +42,7 @@ export class CreateTasks {
   fullName!: string;
   today: Date = new Date();
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private userService: UserService,private router:Router) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.parent?.params.subscribe((res) => {
@@ -97,10 +97,10 @@ export class CreateTasks {
         verticalPosition: this.verticalPosition,
         duration: this.durationInSeconds * 1000,
       });
-      setTimeout(()=>{
+      setTimeout(() => {
         this.router.navigate(['/user/dashboard', this.userId]);
 
-        },1000);
+      }, 1000);
     },
       (err: Error) => {
         this._snackBar.open('something went wrong,please try again later', 'Done', {
